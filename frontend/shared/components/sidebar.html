@@ -1,0 +1,422 @@
+<nav class="sidebar d-flex flex-column align-items-start shadow">
+    <!-- Brand Header -->
+    <div class="sidebar-brand w-100 d-flex align-items-center flex-shrink-0" style="height: 71px; border-bottom: 1px solid #e2e8f01f;">
+        <div class="d-flex align-items-center w-100 brand-container" style="overflow: hidden;">
+            <!-- White Square Logo Box (Shrunk) -->
+            <div class="bg-white d-flex flex-column align-items-center justify-content-center rounded-1" style="min-width: 40px; height: 40px; padding: 2px;">
+                <div class="d-flex align-items-center justify-content-center text-danger mb-1">
+                    <i class="fa-solid fa-layer-group" style="font-size: 0.9rem;"></i>
+                </div>
+                <div class="text-center" style="font-size: 3.5px; font-weight: 800; color: #0d47a1; line-height: 1.1;">
+                    LEADING EDGE<br>SOFTWARE
+                </div>
+            </div>
+            
+            <!-- Long Brand Text (Shows only when expanded) -->
+            <h4 class="mb-0 text-white fw-bold ms-3 nav-text" style="white-space: nowrap; font-size: 1.15rem; letter-spacing: 0.5px;">Smart Cafeteria</h4>
+        </div>
+    </div>
+
+    <!-- Main Menu Area -->
+    <ul class="nav flex-column w-100 sidebar-menu">
+        <li class="nav-item">
+            <a href="/frontend/dashboard/index.html" class="nav-link"><i class="fa-solid fa-th-large"></i><span class="nav-text">Dashboard</span></a>
+        </li>
+        <li class="nav-item">
+            <a href="#billingSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-money-bill-1"></i>
+                    <span class="nav-text">Billing</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="billingSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/billing/billing.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-gear" style="font-size:0.8rem;"></i> Billings
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/discount/discount-setup.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-gear" style="font-size:0.8rem;"></i> Discount Setup
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#customerSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="nav-text">Customer</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="customerSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/customer/customer.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-user" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Customers
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/customer/customer-due.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Customer Due
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/customer/customer-pay-history.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Customer Payment History
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/customer/customer-sumary-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Customer Summary Report
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#tableSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-border-all"></i>
+                    <span class="nav-text">Table</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="tableSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/table/table-category.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-list" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Table Category
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/table/create-tables.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-plus" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Create Tables
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#inventorySubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="nav-text">Inventory</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="inventorySubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/product/product-category.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-list-ul" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Product Category
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/product/product-unit.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-circle-dot" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Product Unit
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/product/product-items.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-box" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Product Items
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/stock/stock-movement.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-cubes" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Stock Movement
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/stock/staff-stock-issue.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-user-plus" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Staff Stock Issue
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/product/product-status.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Product Status
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/stock/stock-inventory-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Stock Inventory Report
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/stock/stock-adjustment.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-square-check" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Stock Adjustment
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#menuSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-bars"></i>
+                    <span class="nav-text">Menu</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="menuSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/menu/menu-unit.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Unit
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/menu/menu-category.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Category
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/menu/menu-items.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Items
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/menu/menu-ingredient.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Ingredient
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/menu/menu-consumption-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu-Consumption Report
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/menu/menu-cost-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Cost Report
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#purchaseSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span class="nav-text">Purchase</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="purchaseSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/purchase/purchase.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-arrow-right" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Purchase
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/purchase/purchase-return.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Purchase Return
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/purchase/purchase-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Purchase Report
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/purchase/item-wise-purchase-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Item Wise Purchase Report
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/purchase/purchase-return-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-clone" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Purchase Return Report
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#supplierSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span class="nav-text">Suppliers</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="supplierSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/supplier/supplier.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-user" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Supplier
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/supplier/supplier-remaining-balance.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-list" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Supplier Remaining Balance
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/supplier/supplier-due-payment.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-money-bill-1" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Supplier Due Payment
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/supplier/supplier-payment-history.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Supplier Payment History
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/supplier/supplier-summary-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Supplier Summary Report
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#staffManagementSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span class="nav-text">Staff Management</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="staffManagementSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/role/roles.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-list" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Roles
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/user/users.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-users" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Users
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#officeExpenseSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-building"></i>
+                    <span class="nav-text">Office Expenses</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="officeExpenseSubmenu">
+                <li class="mb-2">
+                    <a href="/frontend/expense/expense-category.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-list" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Expense Category
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="/frontend/expense/add-expense.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-solid fa-list" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Add Expense
+                    </a>
+                </li>
+                <li>
+                    <a href="/frontend/expense/expense-report.html" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Expense Report
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#reportsSubmenu" data-bs-toggle="collapse" class="nav-link d-flex justify-content-between align-items-center" aria-expanded="false" style="padding-right: 15px;">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="nav-text">Reports</span>
+                </div>
+                <i class="fa-solid fa-angle-down dropdown-icon"></i>
+            </a>
+            <ul class="collapse list-unstyled ps-4 ms-2 mt-2 mb-2 custom-submenu dropdown-menu-container" id="reportsSubmenu">
+                <li>
+                    <a href="#salesSubmenu" data-bs-toggle="collapse" class="text-decoration-none text-white opacity-75 small d-flex justify-content-between align-items-center gap-2 menu-hover report-parent-link" aria-expanded="false">
+                        <span class="d-flex align-items-center gap-2">
+                            <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Sales
+                        </span>
+                        <i class="fa-solid fa-angle-down report-dropdown-icon"></i>
+                    </a>
+                    <ul class="collapse list-unstyled sales-nested-submenu" id="salesSubmenu">
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Staff Performance
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-solid fa-list" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Kitchen Display
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Day Sales
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Sales Report
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Table Sales
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Discount Sales
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Sales Report
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Staff Orders Report
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Unbilled Checkout
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Expense Sale
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Cancelled Orders Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                                <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Forecast
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mb-2 mt-2">
+                    <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Closing
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Income-Expense
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Menu Profit &amp; Loss Report
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> Order Transfer Report
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> VAT Sales Report
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-decoration-none text-white opacity-75 small d-flex align-items-center gap-2 menu-hover">
+                        <i class="fa-regular fa-copy" style="font-size:0.8rem; width: 16px; text-align: center;"></i> VAT Purchase Book
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</nav>

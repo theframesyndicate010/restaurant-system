@@ -1,0 +1,25 @@
+/* main_css/discount_setup.css */
+
+/* Modal Styling */
+.modal-content {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Scrollbar for container-fluid if needed */
+.container-fluid.overflow-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+.container-fluid.overflow-auto::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.btn-light i {
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+
+.btn-light:hover i {
+    transform: scale(1.15);
+}

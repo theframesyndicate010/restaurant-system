@@ -1,0 +1,149 @@
+/* Staff Stock Issue specific styles */
+
+.staff-filter-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+.filter-manage-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.staff-action-btn {
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    padding: 0.56rem 1rem;
+    border: none;
+    white-space: nowrap;
+}
+
+.staff-new-issue-btn {
+    background:#1a73e8;
+    color: #ffffff;
+}
+
+.staff-new-issue-btn:hover {
+    background: var(--blue-gradient) ;
+    color: #ffffff;
+}
+
+.staff-report-btn {
+    background: var(--teal-gradient);
+    color: #ffffff;
+}
+
+.staff-report-btn:hover {
+    background: var(--teal-gradient);
+    color: #ffffff;
+}
+
+.staff-filter-card .form-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.45rem;
+}
+
+.staff-filter-card .filter-dropdown,
+.staff-filter-card .filter-search-input {
+    height: 46px;
+}
+
+.staff-filter-btn {
+    background-color: #64748b;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.66rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.staff-filter-btn:hover {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.3rem 0.72rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+.status-issued {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.status-added {
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+.status-returned {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.status-partial {
+    background: #ffedd5;
+    color: #c2410c;
+    border-color: #fed7aa;
+}
+
+.staff-stock-issue-table th:nth-child(1),
+.staff-stock-issue-table td:nth-child(1) {
+    min-width: 120px !important;
+}
+
+.staff-stock-issue-table th:nth-child(2),
+.staff-stock-issue-table td:nth-child(2) {
+    min-width: 160px !important;
+}
+
+.staff-stock-issue-table th:nth-child(3),
+.staff-stock-issue-table td:nth-child(3) {
+    min-width: 190px !important;
+}
+
+.staff-stock-issue-table th:nth-child(4),
+.staff-stock-issue-table td:nth-child(4),
+.staff-stock-issue-table th:nth-child(5),
+.staff-stock-issue-table td:nth-child(5),
+.staff-stock-issue-table th:nth-child(6),
+.staff-stock-issue-table td:nth-child(6) {
+    min-width: 120px !important;
+}
+
+.staff-stock-issue-table th:nth-child(7),
+.staff-stock-issue-table td:nth-child(7) {
+    min-width: 170px !important;
+}
+
+@media (max-width: 768px) {
+    .filter-manage-title {
+        font-size: 1.15rem;
+    }
+
+    .staff-actions {
+        width: 100%;
+    }
+
+    .staff-actions .staff-action-btn {
+        flex: 1 1 calc(50% - 0.5rem);
+        justify-content: center;
+    }
+}

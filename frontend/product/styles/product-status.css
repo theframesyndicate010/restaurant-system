@@ -1,0 +1,139 @@
+/* Product Status page styles */
+
+/* Use custom top controls for this page */
+.product-status-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.product-status-filter-card .form-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.product-status-filter-card .filter-dropdown,
+.product-status-filter-card .filter-search-input {
+    height: 42px;
+}
+
+.product-status-icon-btn {
+    min-height: 42px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+}
+
+.product-status-refresh {
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #d1d9e6;
+}
+
+.product-status-refresh:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+.product-status-print {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+.product-status-print:hover {
+    background-color: #15803d;
+    color: #ffffff;
+}
+
+.product-status-pdf {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.product-status-pdf:hover {
+    background-color: #b91c1c;
+    color: #ffffff;
+}
+
+.sn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.3rem 0.72rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+.status-in-stock {
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+.status-low-stock {
+    background: #ffedd5;
+    color: #c2410c;
+    border-color: #fed7aa;
+}
+
+.status-out-stock {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.product-status-table th:nth-child(2),
+.product-status-table td:nth-child(2) {
+    min-width: 190px !important;
+}
+
+.product-status-table th:nth-child(3),
+.product-status-table td:nth-child(3) {
+    min-width: 120px !important;
+}
+
+.product-status-table th:nth-child(4),
+.product-status-table td:nth-child(4) {
+    min-width: 160px !important;
+}
+
+.product-status-table th:nth-child(5),
+.product-status-table td:nth-child(5) {
+    min-width: 170px !important;
+}
+
+.product-status-table th:nth-child(6),
+.product-status-table td:nth-child(6) {
+    min-width: 150px !important;
+}
+
+@media (max-width: 768px) {
+    .product-status-page .content-card .dt-bottom-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-status-page .content-card .dt-bottom-bar .dataTables_info,
+    .product-status-page .content-card .dt-bottom-bar .dataTables_paginate {
+        padding-inline: 0.75rem;
+    }
+}

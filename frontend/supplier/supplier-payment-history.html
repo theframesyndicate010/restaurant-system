@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Payment History - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../table/styles/datatable.css">
+    <link rel="stylesheet" href="styles/supplier-payment-history.css">
+</head>
+
+<body class="supplier-payment-history-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column gap-1">
+                        <h4 class="page-header-title">Supplier Payment History</h4>
+                        <p class="page-header-subtitle">Review historical supplier payments with date and supplier filters.</p>
+                    </div>
+                </div>
+
+                <div class="card filter-toolbar-card supplier-history-filter-card">
+                    <div class="card-body">
+                        <div class="supplier-history-toolbar-row">
+                            <div class="supplier-history-field">
+                                <label for="supplierHistoryFilter" class="form-label supplier-history-label">Supplier</label>
+                                <select id="supplierHistoryFilter" class="form-select filter-dropdown supplier-history-control" aria-label="Select supplier">
+                                    <option value="">--Select Supplier--</option>
+                                </select>
+                            </div>
+
+                            <div class="supplier-history-field">
+                                <label for="supplierHistoryFromDate" class="form-label supplier-history-label">From Date</label>
+                                <input id="supplierHistoryFromDate" type="text" class="form-control filter-search-input supplier-history-control" placeholder="YYYY/MM/DD" aria-label="From date">
+                            </div>
+
+                            <div class="supplier-history-field">
+                                <label for="supplierHistoryToDate" class="form-label supplier-history-label">To Date</label>
+                                <input id="supplierHistoryToDate" type="text" class="form-control filter-search-input supplier-history-control" placeholder="YYYY/MM/DD" aria-label="To date">
+                            </div>
+
+                            <div class="supplier-history-field">
+                                <label for="supplierHistoryPageLength" class="form-label supplier-history-label">Limit</label>
+                                <select id="supplierHistoryPageLength" class="form-select filter-dropdown supplier-history-control" aria-label="Page length">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50" selected>50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+
+                            <div class="supplier-history-field supplier-history-refresh-wrap">
+                                <label class="form-label supplier-history-label">&nbsp;</label>
+                                <button type="button" id="supplierHistoryRefreshBtn" class="btn supplier-history-refresh-btn" title="Refresh">
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card content-card">
+                    <div class="card-body">
+                        <div class="table-responsive premium-table-box supplier-history-table-shell">
+                            <table class="table align-middle mb-0 table-hover supplier-history-table datatable-init" id="supplierPaymentHistoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>Supplier</th>
+                                        <th class="text-end">Paid Amount</th>
+                                        <th class="text-end">Discount Amount</th>
+                                        <th>Payment Mode</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="supplierHistoryTableBody"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end supplier-history-net-label">Net Total</td>
+                                        <td class="text-end supplier-history-net-value" id="supplierHistoryNetTotal">0.00</td>
+                                        <td class="text-end supplier-history-net-secondary-value" id="supplierHistoryDiscountTotal">0.00</td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <template id="supplierHistorySnTemplate">
+                            <span class="supplier-history-sn">0</span>
+                        </template>
+
+                        <template id="supplierHistoryDateTemplate">
+                            <span class="supplier-history-date"></span>
+                        </template>
+
+                        <template id="supplierHistorySupplierTemplate">
+                            <span class="supplier-history-supplier"></span>
+                        </template>
+
+                        <template id="supplierHistoryPaidTemplate">
+                            <span class="supplier-history-paid"></span>
+                        </template>
+
+                        <template id="supplierHistoryDiscountTemplate">
+                            <span class="supplier-history-discount"></span>
+                        </template>
+
+                        <template id="supplierHistoryModeTemplate">
+                            <span class="supplier-history-mode"></span>
+                        </template>
+
+                        <app-datatable></app-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/components/data_table.js"></script>
+    <script src="scripts/supplier-payment-history.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

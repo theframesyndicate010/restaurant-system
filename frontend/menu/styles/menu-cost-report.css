@@ -1,0 +1,168 @@
+/* Menu Cost Report styles */
+
+.menu-cost-report-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.cost-filter-toolbar-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+.cost-toolbar-row {
+    min-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.cost-filter-input {
+    min-height: 42px;
+}
+
+.cost-category-select {
+    width: 260px;
+    min-width: 230px;
+}
+
+.cost-menu-search {
+    width: 300px;
+    min-width: 260px;
+}
+
+.cost-page-length {
+    width: 105px;
+    min-width: 100px;
+}
+
+.cost-refresh-btn {
+    min-height: 42px;
+    min-width: 52px;
+    border-radius: 8px;
+    border: 1px solid #d1d9e6;
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+.cost-refresh-btn:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+.cost-table-shell {
+    overflow-x: auto !important;
+}
+
+.menu-cost-table {
+    min-width: 760px;
+}
+
+.menu-cost-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.menu-cost-table th:nth-child(2),
+.menu-cost-table td:nth-child(2) {
+    min-width: 260px !important;
+}
+
+.menu-cost-table th:nth-child(3),
+.menu-cost-table td:nth-child(3) {
+    min-width: 180px !important;
+}
+
+.menu-cost-table th:nth-child(4),
+.menu-cost-table td:nth-child(4) {
+    min-width: 150px !important;
+}
+
+.menu-cost-table td {
+    font-size: 0.89rem;
+    vertical-align: middle;
+}
+
+.menu-cost-table .action-btn {
+    min-width: 90px;
+}
+
+.menu-cost-view-btn {
+    min-width: 34px !important;
+    padding-inline: 0.5rem !important;
+}
+
+.menu-cost-table td:nth-child(4) .d-flex {
+    flex-wrap: nowrap;
+}
+
+.menu-cost-sn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.menu-cost-item-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.menu-cost-item-category {
+    display: block;
+    margin-top: 0.12rem;
+    font-size: 0.76rem;
+    color: #64748b;
+}
+
+.menu-cost-amount {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+.menu-cost-action-btn {
+    text-decoration: none;
+}
+
+.menu-cost-action-btn:hover {
+    text-decoration: none;
+}
+
+.menu-cost-action-btn.is-setup.btn-outline-success {
+    color: #15803d;
+}
+
+.menu-cost-action-btn.is-setup.btn-outline-success:hover {
+    color: #ffffff;
+}
+
+.menu-cost-footnote {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .cost-toolbar-row,
+    .cost-category-select,
+    .cost-menu-search,
+    .cost-page-length,
+    .cost-refresh-btn {
+        width: 100%;
+        min-width: 100%;
+    }
+}

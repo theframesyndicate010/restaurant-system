@@ -1,0 +1,153 @@
+/* Stock Summary Report page styles */
+
+.stock-summary-filter-card .form-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stock-summary-filter-card .filter-dropdown,
+.stock-summary-filter-card .filter-search-input {
+    height: 42px;
+}
+
+.stock-summary-load-btn {
+    min-height: 42px;
+    background: var(--teal-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.stock-summary-load-btn:hover {
+    background: linear-gradient(135deg, #0f766e 0%, #059669 100%);
+    color: #ffffff;
+}
+
+.stock-summary-table th:nth-child(1),
+.stock-summary-table td:nth-child(1) {
+    min-width: 360px !important;
+}
+
+.stock-summary-table th:nth-child(2),
+.stock-summary-table td:nth-child(2) {
+    min-width: 240px !important;
+}
+
+.stock-summary-table tbody td {
+    font-size: 0.92rem;
+}
+
+.stock-summary-table th,
+.stock-summary-table td,
+.movement-mini-table td {
+    white-space: nowrap;
+}
+
+.stock-summary-page .premium-table-box {
+    overflow-x: auto !important;
+}
+
+.stock-summary-page .premium-table-box table {
+    width: max-content;
+    min-width: 100%;
+}
+
+.stock-movement-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 0.55rem;
+}
+
+.movement-mini-table {
+    width: 100%;
+    max-width: 320px;
+    border-collapse: collapse;
+}
+
+.movement-mini-table td {
+    font-size: 0.86rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid #dbe3ee;
+    background-color: #f8fafc !important;
+}
+
+.movement-mini-table td:last-child {
+    text-align: right;
+    min-width: 44px;
+}
+
+@media (max-width: 768px) {
+    .stock-summary-page .premium-table-box {
+        overflow-x: hidden !important;
+    }
+
+    .stock-summary-page .premium-table-box table {
+        width: 100% !important;
+        min-width: 100% !important;
+        table-layout: fixed;
+    }
+
+    .stock-summary-table th,
+    .stock-summary-table td {
+        white-space: normal !important;
+        word-break: normal;
+        overflow-wrap: break-word;
+        line-height: 1.35;
+    }
+
+    .stock-summary-table th:nth-child(1),
+    .stock-summary-table td:nth-child(1) {
+        min-width: 0 !important;
+        width: 72%;
+    }
+
+    .stock-summary-table th:nth-child(2),
+    .stock-summary-table td:nth-child(2) {
+        min-width: 0 !important;
+        width: 40%;
+    }
+
+    .stock-summary-table tbody td {
+        font-size: 0.84rem;
+        padding: 0.64rem 0.5rem;
+    }
+
+    .stock-movement-label {
+        font-size: 0.88rem;
+    }
+
+    .movement-mini-table {
+        max-width: 100%;
+        table-layout: fixed;
+    }
+
+    .movement-mini-table td {
+        white-space: normal !important;
+        word-break: normal;
+        overflow-wrap: normal;
+        line-height: 1.3;
+        font-size: 0.8rem;
+        padding: 0.28rem 0.35rem;
+    }
+
+    .movement-mini-table td:first-child {
+        width: calc(100% - 44px);
+    }
+
+    .movement-mini-table td:last-child {
+        min-width: 0;
+        width: 44px;
+        white-space: nowrap !important;
+    }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Summary Report - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="styles/stock-inventory-report.css">
+    <link rel="icon" type="image/png" href="../favicon.png" />
+</head>
+
+<body class="stock-summary-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column gap-1">
+                        <h4 class="page-header-title">Stock Summary Report</h4>
+                        <p class="page-header-subtitle">Review stock opening, movement, adjustment, and closing balance for selected products.</p>
+                    </div>
+                </div>
+
+                <div class="card filter-toolbar-card stock-summary-filter-card">
+                    <div class="card-body">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-12 col-md-6 col-lg-2">
+                                <label class="form-label">From</label>
+                                <input type="text" class="form-control filter-search-input" id="summaryFromDate"
+                                    value="2082-11-01" placeholder="YYYY-MM-DD">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-2">
+                                <label class="form-label">To</label>
+                                <input type="text" class="form-control filter-search-input" id="summaryToDate"
+                                    value="2082-12-29" placeholder="YYYY-MM-DD">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label class="form-label">Product</label>
+                                <select class="form-select filter-dropdown" id="summaryItem">
+                                    <option value="Balvenie 25Y" selected>Balvenie 25Y</option>
+                                    <option value="Fresh Milk (1L)">Fresh Milk (1L)</option>
+                                    <option value="Refined Sugar (1Kg)">Refined Sugar (1Kg)</option>
+                                    <option value="Coca Cola (250ml)">Coca Cola (250ml)</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6 col-md-3 col-lg-1 d-grid">
+                                <button type="button" class="btn stock-summary-load-btn" id="summaryLoadBtn">
+                                    Load <i class="fa-solid fa-gear"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card content-card">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-center mb-3">Stock Report</h5>
+
+                        <div class="table-responsive premium-table-box">
+                            <table class="table stock-summary-table align-middle mb-0 table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Stock Details</th>
+                                        <th class="text-end">Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="availableFromLabel">Available Stock on [2082-11-01]</td>
+                                        <td id="availableFromQty" class="text-end fw-bold">0 Bottle</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="openingLabel">Opening Stock on [2082-12-19]</td>
+                                        <td id="openingQty" class="text-end fw-bold">5 Bottle</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Purchased</td>
+                                        <td id="purchasedQty" class="text-end fw-bold">13 Bottle</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Purchased Return</td>
+                                        <td id="purchasedReturnQty" class="text-end fw-bold">2 Bottle</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="stock-movement-label">Stock Movement :</div>
+                                            <table class="movement-mini-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Sent to Kitchen</td>
+                                                        <td id="sentToKitchenQty" class="text-end">0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Damaged</td>
+                                                        <td id="damagedQty" class="text-end">0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Personal Use</td>
+                                                        <td id="personalUseQty" class="text-end">0</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td id="movementTotalQty" class="text-end fw-bold">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Ingredient Consumption</td>
+                                        <td id="totalConsumptionQty" class="text-end fw-bold">0 Bottle 450 Milliliter</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stock Adjustment</td>
+                                        <td id="stockAdjustmentQty" class="text-end fw-bold">11 btl 610 ml</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="availableToLabel">Available Stock on [2082-12-29]</td>
+                                        <td id="availableToQty" class="text-end fw-bold">15 Bottle 550 Milliliter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+    <script src="scripts/stock-inventory-report.js"></script>
+</body>
+
+</html>

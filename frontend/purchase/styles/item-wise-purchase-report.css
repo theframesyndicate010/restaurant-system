@@ -1,0 +1,164 @@
+/* Item Wise Purchase Report styles */
+
+.item-wise-purchase-report-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.item-wise-report-filter-card .form-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 0.38rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.item-wise-report-filter-card .filter-dropdown,
+.item-wise-report-filter-card .filter-search-input {
+    min-height: 42px;
+}
+
+.item-wise-report-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.item-wise-load-btn {
+    min-height: 42px;
+    min-width: 98px;
+    border: none;
+    border-radius: 8px;
+    background: var(--blue-gradient);
+    color: #ffffff;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.item-wise-load-btn:hover,
+.item-wise-load-btn:focus,
+.item-wise-load-btn:active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--primary-blue-dark) 100%) !important;
+}
+
+.item-wise-icon-btn {
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-wise-print-btn {
+    background: #f1f5f9;
+    border: 1px solid #d5dfeb;
+    color: #334155;
+}
+
+.item-wise-print-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.item-wise-pdf-btn {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.item-wise-pdf-btn:hover {
+    background: #b91c1c;
+    color: #ffffff;
+}
+
+.item-wise-report-table-shell {
+    overflow-x: hidden !important;
+}
+
+.item-wise-report-table {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed;
+}
+
+.item-wise-report-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.item-wise-report-table td {
+    font-size: 0.88rem;
+    vertical-align: middle;
+    color: #334155;
+}
+
+.item-wise-report-table th:nth-child(1),
+.item-wise-report-table td:nth-child(1) {
+    width: 8%;
+}
+
+.item-wise-report-table th:nth-child(2),
+.item-wise-report-table td:nth-child(2) {
+    width: 31%;
+}
+
+.item-wise-report-table th:nth-child(3),
+.item-wise-report-table td:nth-child(3) {
+    width: 30%;
+}
+
+.item-wise-report-table th:nth-child(4),
+.item-wise-report-table td:nth-child(4) {
+    width: 31%;
+}
+
+.item-wise-report-sn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.item-wise-report-empty td {
+    text-align: center;
+    color: #64748b;
+    font-weight: 500;
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+}
+
+@media (max-width: 768px) {
+    .item-wise-report-actions,
+    .item-wise-load-btn,
+    .item-wise-icon-btn {
+        width: 100%;
+    }
+
+    .item-wise-report-table-shell {
+        overflow-x: auto !important;
+    }
+
+    .item-wise-report-table {
+        min-width: 680px !important;
+        table-layout: auto;
+    }
+}

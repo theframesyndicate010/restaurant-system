@@ -1,0 +1,211 @@
+/* Supplier remaining balance page styles */
+
+.supplier-remaining-balance-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.supplier-balance-filter-card .card-body {
+    padding: 1rem 1.25rem !important;
+}
+
+.supplier-balance-toolbar-row {
+    min-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.supplier-balance-filter {
+    width: 410px;
+    max-width: 100%;
+    min-height: 42px;
+}
+
+.supplier-balance-toolbar-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+
+.supplier-balance-page-length {
+    width: 120px;
+    min-width: 100px;
+    min-height: 42px;
+}
+
+.supplier-balance-refresh-btn {
+    min-height: 42px;
+    min-width: 52px;
+    border-radius: 8px;
+    border: 1px solid #cfd8e3;
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    color: #334155;
+}
+
+.supplier-balance-refresh-btn:hover {
+    background: linear-gradient(180deg, #edf2f7 0%, #e2e8f0 100%);
+    color: #0f172a;
+}
+
+.supplier-balance-table-shell {
+    overflow-x: hidden !important;
+}
+
+.supplier-balance-table {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed;
+}
+
+.supplier-balance-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.supplier-balance-table td {
+    font-size: 0.9rem;
+    vertical-align: middle;
+    padding-inline: 0.72rem !important;
+}
+
+.supplier-balance-table th:nth-child(1),
+.supplier-balance-table td:nth-child(1) {
+    width: 7%;
+}
+
+.supplier-balance-table th:nth-child(2),
+.supplier-balance-table td:nth-child(2) {
+    width: 31%;
+}
+
+.supplier-balance-table th:nth-child(3),
+.supplier-balance-table td:nth-child(3) {
+    width: 40%;
+}
+
+.supplier-balance-table th:nth-child(4),
+.supplier-balance-table td:nth-child(4) {
+    width: 22%;
+}
+
+.supplier-balance-sn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.supplier-balance-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.supplier-balance-amount-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.supplier-balance-due-badge {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-radius: 6px;
+    padding: 0.22rem 0.54rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.supplier-balance-amount {
+    font-size: 1.03rem;
+    font-weight: 700;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+}
+
+.supplier-balance-pay-btn {
+    border: 1px solid #16a34a;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-height: 38px;
+    padding-inline: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.42rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.supplier-balance-pay-btn:hover,
+.supplier-balance-pay-btn:focus {
+    background: linear-gradient(135deg, #1cb657 0%, #15803d 100%);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px -6px rgba(22, 163, 74, 0.7);
+}
+
+.supplier-balance-table tfoot tr {
+    background-color: #f8fafc;
+}
+
+.supplier-balance-table tfoot td {
+    border-top: 1px solid #e2e8f0 !important;
+}
+
+.supplier-balance-total-label {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1.05rem;
+}
+
+.supplier-balance-total-value {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 1.75rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+@media (max-width: 1199px) {
+    .supplier-balance-table-shell {
+        overflow-x: auto !important;
+    }
+
+    .supplier-balance-table {
+        min-width: 840px !important;
+        table-layout: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .supplier-balance-filter,
+    .supplier-balance-page-length,
+    .supplier-balance-refresh-btn,
+    .supplier-balance-toolbar-right {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .supplier-balance-toolbar-right {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,167 @@
+/* Expense category page styles */
+
+.expense-category-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.expense-category-filter-card .card-body {
+    padding: 1rem 1.25rem !important;
+}
+
+.expense-category-toolbar-row {
+    min-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.expense-category-add-btn {
+    min-height: 46px;
+    min-width: 320px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-blue);
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    box-shadow: 0 6px 15px rgba(26, 115, 232, 0.28);
+    padding-inline: 1rem;
+}
+
+.expense-category-add-btn:hover,
+.expense-category-add-btn:focus,
+.expense-category-add-btn:active {
+    color: #ffffff !important;
+    background: var(--accent-blue) !important;
+}
+
+.expense-category-search {
+    width: 460px;
+    min-width: 260px;
+    min-height: 42px;
+    margin-left: auto;
+}
+
+.expense-category-page-length {
+    width: 120px;
+    min-width: 100px;
+    min-height: 42px;
+}
+
+.expense-category-refresh-btn {
+    min-height: 42px;
+    min-width: 52px;
+    border-radius: 8px;
+    border: 1px solid #cfd8e3;
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    color: #334155;
+}
+
+.expense-category-refresh-btn:hover {
+    background: linear-gradient(180deg, #edf2f7 0%, #e2e8f0 100%);
+    color: #0f172a;
+}
+
+.expense-category-table-shell {
+    overflow-x: hidden !important;
+}
+
+.expense-category-table {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed;
+}
+
+.expense-category-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.expense-category-table td {
+    font-size: 0.9rem;
+    vertical-align: middle;
+    padding-inline: 0.72rem !important;
+}
+
+.expense-category-table th:nth-child(1),
+.expense-category-table td:nth-child(1) {
+    width: 11%;
+    text-align: left;
+}
+
+.expense-category-table th:nth-child(2),
+.expense-category-table td:nth-child(2) {
+    width: 18%;
+}
+
+.expense-category-table th:nth-child(3),
+.expense-category-table td:nth-child(3) {
+    width: 31%;
+}
+
+.expense-category-table th:nth-child(4),
+.expense-category-table td:nth-child(4) {
+    width: 20%;
+}
+
+.expense-category-table th:nth-child(5),
+.expense-category-table td:nth-child(5) {
+    width: 20%;
+}
+
+.expense-category-sn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.expense-category-code {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.expense-category-title,
+.expense-category-created-by,
+.expense-category-created-at {
+    color: #334155;
+    font-weight: 600;
+}
+
+@media (max-width: 991px) {
+    .expense-category-table-shell {
+        overflow-x: auto !important;
+    }
+
+    .expense-category-table {
+        min-width: 860px !important;
+        table-layout: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .expense-category-add-btn,
+    .expense-category-search,
+    .expense-category-page-length,
+    .expense-category-refresh-btn {
+        width: 100%;
+        min-width: 100%;
+        margin-left: 0;
+    }
+}

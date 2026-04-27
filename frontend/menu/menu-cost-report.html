@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Cost Report - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="../table/styles/datatable.css">
+    <link rel="stylesheet" href="styles/menu-cost-report.css">
+    <link rel="icon" type="image/png" href="../favicon.png" />
+</head>
+
+<body class="menu-cost-report-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column gap-1">
+                        <h4 class="page-header-title">Menu Cost Report</h4>
+                        <p class="page-header-subtitle">Track menu-wise setup cost with quick access to ingredient setup actions.</p>
+                    </div>
+                </div>
+
+                <div class="card filter-toolbar-card cost-filter-toolbar-card">
+                    <div class="card-body">
+                        <div class="cost-toolbar-row">
+                            <select id="menuCostCategoryFilter" class="form-select filter-dropdown cost-filter-input cost-category-select" aria-label="Select category">
+                                <option value="">--Select Category--</option>
+                            </select>
+
+                            <input id="menuCostSearchInput" type="search" class="form-control filter-search-input cost-filter-input cost-menu-search"
+                                placeholder="Menu Item" aria-label="Search menu item">
+
+                            <select id="menuCostPageLength" class="form-select filter-dropdown cost-filter-input cost-page-length" aria-label="Page length">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50" selected>50</option>
+                                <option value="100">100</option>
+                            </select>
+
+                            <button type="button" id="menuCostRefreshBtn" class="btn cost-refresh-btn" title="Refresh">
+                                <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card content-card">
+                    <div class="card-body">
+                        <div class="table-responsive premium-table-box cost-table-shell">
+                            <table class="table align-middle mb-0 table-hover menu-cost-table datatable-init">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 90px;">#</th>
+                                        <th>Menu Item</th>
+                                        <th style="width: 220px;">Cost</th>
+                                        <th style="width: 180px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="menuCostReportBody"></tbody>
+                            </table>
+                        </div>
+
+                        <template id="menuCostSnTemplate">
+                            <span class="menu-cost-sn">0</span>
+                        </template>
+
+                        <template id="menuCostItemTemplate">
+                            <span class="menu-cost-item-name"></span>
+                            <span class="menu-cost-item-category"></span>
+                        </template>
+
+                        <template id="menuCostAmountTemplate">
+                            <span class="menu-cost-amount"></span>
+                        </template>
+
+                        <template id="menuCostActionTemplate">
+                            <div class="d-flex justify-content-center gap-2">
+                                <button type="button" class="btn btn-sm btn-outline-secondary shadow-sm action-btn menu-cost-view-btn" title="View">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </template>
+
+                        <app-datatable></app-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/components/data_table.js"></script>
+    <script src="scripts/menu-cost-report.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

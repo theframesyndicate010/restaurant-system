@@ -1,0 +1,225 @@
+/* Roles page styles */
+
+.roles-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.roles-filter-card .card-body {
+    padding: 1rem 1.25rem !important;
+}
+
+.roles-toolbar-row {
+    min-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.roles-add-btn {
+    min-height: 46px;
+    min-width: 320px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-blue);
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    box-shadow: 0 6px 15px rgba(26, 115, 232, 0.28);
+    padding-inline: 1rem;
+}
+
+.roles-add-btn:hover,
+.roles-add-btn:focus,
+.roles-add-btn:active {
+    color: #ffffff !important;
+    background: var(--accent-blue) !important;
+}
+
+.roles-search {
+    width: 410px;
+    min-width: 260px;
+    min-height: 42px;
+    margin-left: auto;
+}
+
+.roles-page-length {
+    width: 120px;
+    min-width: 100px;
+    min-height: 42px;
+}
+
+.roles-refresh-btn {
+    min-height: 42px;
+    min-width: 52px;
+    border-radius: 8px;
+    border: 1px solid #cfd8e3;
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    color: #334155;
+}
+
+.roles-refresh-btn:hover {
+    background: linear-gradient(180deg, #edf2f7 0%, #e2e8f0 100%);
+    color: #0f172a;
+}
+
+.roles-table-shell {
+    overflow-x: hidden !important;
+}
+
+.roles-table {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed;
+}
+
+.roles-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.roles-table td {
+    font-size: 0.9rem;
+    vertical-align: middle;
+    padding-inline: 0.72rem !important;
+}
+
+.roles-table th:nth-child(1),
+.roles-table td:nth-child(1) {
+    width: 12%;
+}
+
+.roles-table th:nth-child(2),
+.roles-table td:nth-child(2) {
+    width: 40%;
+}
+
+.roles-table th:nth-child(3),
+.roles-table td:nth-child(3) {
+    width: 20%;
+}
+
+.roles-table th:nth-child(4),
+.roles-table td:nth-child(4) {
+    width: 28%;
+}
+
+.roles-table thead th,
+.roles-table tbody td {
+    text-align: center !important;
+}
+
+.roles-table thead th .col-header-content {
+    justify-content: center;
+    position: relative;
+}
+
+.roles-table thead th .col-header-text {
+    width: 100%;
+    text-align: center;
+    padding-right: 28px;
+}
+
+.roles-table thead th .col-menu-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.roles-table thead th .col-menu-btn:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+.role-sn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.role-name {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.role-status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
+.role-status-enabled {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.role-status-disabled {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.roles-table .action-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 0.75rem;
+}
+
+.role-toggle-btn {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.role-toggle-btn:hover {
+    background-color: #0f172a;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.role-action-wrap {
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+}
+
+@media (max-width: 1199px) {
+    .roles-table-shell {
+        overflow-x: auto !important;
+    }
+
+    .roles-table {
+        min-width: 780px !important;
+        table-layout: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .roles-add-btn,
+    .roles-search,
+    .roles-page-length,
+    .roles-refresh-btn {
+        width: 100%;
+        min-width: 100%;
+        margin-left: 0;
+    }
+}

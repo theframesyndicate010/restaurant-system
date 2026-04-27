@@ -1,0 +1,47 @@
+/* Create Menu Unit page styling aligned with project theme */
+.create-menu-unit-card {
+    border-radius: 16px;
+}
+
+.create-menu-unit-icon {
+    width: 42px;
+    height: 42px;
+}
+
+.create-menu-unit-title {
+    font-size: 1.05rem;
+}
+
+.create-menu-unit-note {
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    background: rgba(13, 110, 253, 0.08);
+    color: #0f365f;
+}
+
+.create-menu-unit-btn-primary {
+    background-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+    border-radius: 10px;
+    min-width: 132px;
+}
+
+.create-menu-unit-btn-primary:hover {
+    background-color: #1557b0 !important;
+    border-color: #1557b0 !important;
+}
+
+.create-menu-unit-btn-muted {
+    border-radius: 10px;
+}
+
+@media (max-width: 767.98px) {
+    .create-menu-unit-actions {
+        flex-direction: column;
+    }
+
+    .create-menu-unit-actions .btn,
+    .create-menu-unit-actions a.btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

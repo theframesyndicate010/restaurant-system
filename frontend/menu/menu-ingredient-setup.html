@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Ingredient Setup - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="styles/menu-ingredient-setup.css">
+    <link rel="icon" type="image/png" href="../favicon.png" />
+</head>
+
+<body class="menu-ingredient-setup-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column gap-1">
+                        <h4 class="page-header-title">Menu Ingredient Setup</h4>
+                        <p class="page-header-subtitle">Create precise stock consumption setup for each menu item and track live cost.</p>
+                    </div>
+                </div>
+
+                <div class="card content-card menu-ingredient-setup-card">
+                    <div class="card-body p-0">
+                        <div class="setup-toolbar">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-12 col-lg-6 col-xl-5">
+                                    <label for="setupMenuItemSelect" class="setup-label">Select Menu Item</label>
+                                    <select id="setupMenuItemSelect" class="form-select filter-dropdown setup-menu-item-select" aria-label="Select menu item">
+                                        <option value="">-- Select Menu Item --</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-auto d-flex gap-2 setup-toolbar-actions">
+                                    <button type="button" id="setupAddProductBtn" class="btn setup-add-product-btn">
+                                        <i class="fa-solid fa-plus"></i> Add Product
+                                    </button>
+                                    <a href="menu-ingredient.html" class="btn setup-back-btn text-decoration-none">
+                                        <i class="fa-solid fa-arrow-left"></i> Back
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="setupMessage" class="alert d-none mx-3 mx-md-4 mt-3 mb-0" role="alert"></div>
+
+                        <div class="setup-grid-wrap p-3 p-md-4 pt-3">
+                            <div class="table-responsive setup-table-box">
+                                <table class="table align-middle mb-0 setup-ingredient-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="min-width: 280px;">Stock Item</th>
+                                            <th style="min-width: 240px;">Main Qty</th>
+                                            <th style="min-width: 240px;">Sub Qty</th>
+                                            <th style="min-width: 170px;">Cost</th>
+                                            <th style="width: 80px;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="setupIngredientRows"></tbody>
+                                </table>
+                            </div>
+
+                            <div class="setup-summary mt-3">
+                                <div class="setup-summary-row setup-summary-other">
+                                    <span class="setup-summary-title">Other Expenses</span>
+                                    <div class="setup-summary-value-box">
+                                        <input type="number" id="setupOtherExpenses" class="form-control setup-summary-input" min="0" step="0.01" value="0">
+                                    </div>
+                                </div>
+                                <div class="setup-summary-row setup-summary-total">
+                                    <span class="setup-summary-title">Cost of Menu</span>
+                                    <div class="setup-summary-value-box">
+                                        <output id="setupTotalCost" class="setup-summary-output">0.00</output>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setup-actions">
+                                <button type="button" id="setupSaveBtn" class="btn setup-save-btn">
+                                    <i class="fa-regular fa-floppy-disk"></i> Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="setupIngredientRowTemplate">
+        <tr>
+            <td>
+                <select class="form-select setup-stock-select" aria-label="Select stock item">
+                    <option value="">Select Stock Item</option>
+                </select>
+            </td>
+            <td>
+                <div class="setup-qty-group">
+                    <input type="number" class="form-control setup-main-qty" min="0" step="0.01" value="0" aria-label="Main quantity">
+                    <span class="setup-unit-chip setup-main-unit">-</span>
+                </div>
+            </td>
+            <td>
+                <div class="setup-qty-group">
+                    <input type="number" class="form-control setup-sub-qty" min="0" step="0.01" value="0" aria-label="Sub quantity">
+                    <span class="setup-unit-chip setup-sub-unit">-</span>
+                </div>
+            </td>
+            <td>
+                <span class="setup-line-cost">0.00</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-link setup-remove-row" title="Remove row" aria-label="Remove row">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="scripts/menu-ingredient-setup.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

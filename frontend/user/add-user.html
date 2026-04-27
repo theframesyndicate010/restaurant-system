@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New User - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="../shared/styles/base/floaty.css">
+    <link rel="stylesheet" href="styles/add-user.css">
+</head>
+
+<body class="add-user-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                        <div>
+                            <h4 class="page-header-title">Add New User</h4>
+                            <p class="page-header-subtitle">Create login profile details and assign role access for the selected staff user.</p>
+                        </div>
+                        <a href="users.html" class="btn btn-outline-light add-user-back-btn text-decoration-none d-inline-flex align-items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Back to Users
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card content-card add-user-card">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="add-user-head d-flex align-items-center border-bottom pb-4 mb-4">
+                            <div class="add-user-head-icon">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-dark mb-1">New User</h5>
+                                <p class="text-muted small mb-0">Fill the required fields to create a user account.</p>
+                            </div>
+                        </div>
+
+                        <div id="addUserAlert" class="alert d-none mb-4" role="alert"></div>
+
+                        <form id="addUserForm" novalidate>
+                            <div class="row g-4 pt-1">
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userFullName" type="text" class="form-control form-control-solid" placeholder=" " required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-id-card me-1 text-primary"></i> Full Name <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userPrimaryAddress" type="text" class="form-control form-control-solid" placeholder=" " required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-location-dot me-1 text-primary"></i> Primary Address <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userSecondaryAddress" type="text" class="form-control form-control-solid" placeholder=" ">
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-map-location-dot me-1 text-primary"></i> Secondary Address
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userPrimaryContact" type="tel" class="form-control form-control-solid" placeholder=" " required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-phone me-1 text-primary"></i> Primary Contact <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userSecondaryContact" type="tel" class="form-control form-control-solid" placeholder=" ">
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-phone-volume me-1 text-primary"></i> Secondary Contact
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userEmailAddress" type="email" class="form-control form-control-solid" placeholder=" " required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-envelope me-1 text-primary"></i> Email Address <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userUsername" type="text" class="form-control form-control-solid" placeholder="admin" required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-user me-1 text-primary"></i> Username <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userPassword" type="password" class="form-control form-control-solid" placeholder="********" required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-lock me-1 text-primary"></i> Password <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="floaty-input">
+                                        <input id="userConfirmPassword" type="password" class="form-control form-control-solid" placeholder="********" required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-shield-halved me-1 text-primary"></i> Confirm Password <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="userImage" class="add-user-file-label d-block mb-2">
+                                        <i class="fa-solid fa-image me-1 text-primary"></i> Image
+                                    </label>
+                                    <input id="userImage" type="file" class="form-control form-control-solid add-user-file-input" accept="image/*">
+                                    <div id="userImageHint" class="add-user-file-hint">No file chosen</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="add-user-section-label d-block mb-2">
+                                        <i class="fa-solid fa-user-shield me-1 text-primary"></i> Roles <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="add-user-role-group" id="userRoleOptions">
+                                        <label class="add-user-role-option">
+                                            <input type="radio" name="userRole" value="Admin" checked>
+                                            <span>Admin</span>
+                                        </label>
+                                        <label class="add-user-role-option">
+                                            <input type="radio" name="userRole" value="Cashier">
+                                            <span>Cashier</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert add-user-note mt-4 mb-0">
+                                <i class="fa-solid fa-circle-info me-2"></i>
+                                <strong>Note:</strong> * Fields are mandatory.
+                            </div>
+
+                            <div class="d-flex justify-content-end gap-3 mt-4 pt-4 border-top add-user-actions">
+                                <a href="users.html" class="btn btn-outline-secondary px-4 d-inline-flex align-items-center gap-2 text-decoration-none">
+                                    <i class="fa-solid fa-arrow-left"></i> Back
+                                </a>
+                                <button type="reset" id="addUserResetBtn" class="btn btn-outline-secondary px-4 d-inline-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-rotate-right"></i> Reset
+                                </button>
+                                <button type="submit" class="btn add-user-save-btn px-4 d-inline-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-floppy-disk"></i> Save User
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="scripts/add_user.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

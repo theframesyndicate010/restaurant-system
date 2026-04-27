@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Table - Smart Cafeteria</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="styles/datatable.css">
+    <link rel="stylesheet" href="styles/tables.css">
+    <link rel="stylesheet" href="../shared/styles/base/floaty.css">
+</head>
+
+<body>
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!-- Sidebar Component -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <!-- Top Header Component -->
+            <app-header></app-header>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-xl-10">
+
+                        <!-- Form Card Redesign -->
+                        <div class="card content-card"
+                            style="border: 1px solid #f1f5f9; border-top: 3px solid var(--primary-blue); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); background-color: #ffffff;">
+                            <div class="card-body p-4 p-md-5">
+
+                                <!-- Integrated Header inside Card -->
+                                <div class="d-flex align-items-center mb-4 border-bottom pb-4"
+                                    style="border-color: #f1f5f9 !important;">
+                                    <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded text-primary me-3"
+                                        style="width: 48px; height: 48px;">
+                                        <i class="fa-solid fa-table-cells fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold text-dark mb-1" style="font-size: 1.15rem;">Table Details</h5>
+                                        <p class="text-muted small mb-0">Fill in details to create a new individual table</p>
+                                    </div>
+                                </div>
+
+                                <form>
+                                    <div class="row g-4 pt-2">
+                                        <!-- Table Name -->
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <input type="text" class="form-control form-control-solid"
+                                                    placeholder=" " required>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-tag me-1 text-primary"></i> Table Name <span
+                                                        class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Display Name -->
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <input type="text" class="form-control form-control-solid"
+                                                    placeholder=" " required>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-display me-1 text-primary"></i> Display Name <span
+                                                        class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Table Category -->
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid" required>
+                                                    <option value="" disabled selected hidden></option> <!-- Placeholder for valid:required hook -->
+                                                    <option value="1">VIP Lounge</option>
+                                                    <option value="2">Main Dining</option>
+                                                    <option value="3">Rooftop / Terrace</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-layer-group me-1 text-primary"></i> Table Category <span
+                                                        class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Display Position -->
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <input type="number" class="form-control form-control-solid"
+                                                    placeholder=" ">
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-list-ol me-1 text-primary"></i> Display Position
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Status -->
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid">
+                                                    <option value="" disabled selected hidden></option>
+                                                    <option value="active">Active</option>
+                                                    <option value="maintenance">Maintenance</option>
+                                                    <option value="inactive">Inactive</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-circle-check me-1 text-primary"></i> Status
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Is Reserved -->
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid">
+                                                    <option value="" disabled selected hidden></option>
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-calendar-check me-1 text-primary"></i> Is Reserved
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Info Alert -->
+                                    <div class="alert mt-4 mb-0"
+                                        style="background-color: #fff8f1; border: 1px solid #ffe8cc; color: #d97706; border-radius: 8px; font-size: 0.85rem;">
+                                        <i class="fa-solid fa-circle-info me-2"></i> <strong class="fw-bold">Please
+                                            Note:</strong> Tables are automatically assigned to their selected categories. The display position determines the order in which they appear on the digital floor plan.
+                                    </div>
+
+                                    <!-- Form Actions -->
+                                    <div class="d-flex justify-content-end gap-3 mt-4 pt-4 border-top"
+                                        style="border-color: #f1f5f9 !important;">
+                                        <a href="create-tables.html"
+                                            class="btn px-4 bg-white text-dark border d-flex align-items-center gap-2 text-decoration-none"
+                                            style="border-color: #e2e8f0 !important; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
+                                            <i class="fa-solid fa-xmark"></i> Cancel
+                                        </a>
+                                        <button type="reset"
+                                            class="btn px-4 bg-white text-dark border d-flex align-items-center gap-2"
+                                            style="border-color: #e2e8f0 !important; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
+                                            <i class="fa-solid fa-rotate-right"></i> Reset
+                                        </button>
+                                        <button type="submit"
+                                            class="btn px-4 d-flex align-items-center gap-2 text-white"
+                                            style="background-color: var(--primary-blue); border-radius: 6px; font-weight: 600; font-size: 0.85rem; border: none;">
+                                            <i class="fa-solid fa-paper-plane"></i> Save Table
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component Scripts -->
+    <script src="../shared/components/component.js"></script>
+    <!-- Custom Scripts -->
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>
+

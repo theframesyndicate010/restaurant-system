@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Expense Report - Smart Cafeteria</title>
+	<link rel="icon" type="image/png" href="../favicon.png" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+	<link rel="stylesheet" href="../shared/styles/layout/header.css">
+	<link rel="stylesheet" href="../shared/styles/base/style.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="../table/styles/datatable.css">
+	<link rel="stylesheet" href="styles/expense-report.css">
+</head>
+
+<body class="expense-report-page">
+	<div class="d-flex wrapper vh-100 overflow-hidden">
+		<div class="sidebar-overlay" id="sidebarOverlay"></div>
+		<app-sidebar></app-sidebar>
+
+		<div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+			<app-header></app-header>
+
+			<div class="container-fluid p-3 p-md-4 overflow-auto">
+				<div class="card page-header-card">
+					<div class="card-body d-flex flex-column gap-1">
+						<h4 class="page-header-title">Expense Report</h4>
+						<p class="page-header-subtitle">Review office expense transactions with filters and actions.</p>
+					</div>
+				</div>
+
+				<div class="card filter-toolbar-card expense-report-filter-card">
+					<div class="card-body">
+						<div class="expense-report-toolbar-row">
+							<div class="expense-report-filter-group expense-report-date-group">
+								<label for="expenseDateFrom" class="expense-report-filter-label">Date From</label>
+								<input id="expenseDateFrom" type="text" class="form-control filter-search-input expense-report-date-input" value="10/05/2082" aria-label="Date from">
+							</div>
+
+							<div class="expense-report-filter-group expense-report-date-group">
+								<label for="expenseDateTo" class="expense-report-filter-label">Date To</label>
+								<input id="expenseDateTo" type="text" class="form-control filter-search-input expense-report-date-input" value="12/30/2082" aria-label="Date to">
+							</div>
+
+							<div class="expense-report-filter-group expense-report-type-group">
+								<label for="expenseTypeFilter" class="expense-report-filter-label">Expense Type</label>
+								<select id="expenseTypeFilter" class="form-select filter-dropdown expense-report-type-filter" aria-label="Expense type filter">
+									<option value="all" selected>All</option>
+									<option value="General Expense">General Expense</option>
+									<option value="Salary Payment">Salary Payment</option>
+								</select>
+							</div>
+
+							<div class="expense-report-filter-group expense-report-status-group">
+								<label for="expenseStatusFilter" class="expense-report-filter-label">Status</label>
+								<select id="expenseStatusFilter" class="form-select filter-dropdown expense-report-status-filter" aria-label="Status filter">
+									<option value="all" selected>All</option>
+									<option value="Paid">Paid</option>
+									<option value="Pending">Pending</option>
+									<option value="Cancelled">Cancelled</option>
+								</select>
+							</div>
+
+							<div class="expense-report-filter-group expense-report-search-group">
+								<label for="expenseSearch" class="expense-report-filter-label">Search</label>
+								<input
+									id="expenseSearch"
+									type="search"
+									class="form-control filter-search-input expense-report-search"
+									placeholder="Remarks / Payment"
+									aria-label="Search remarks or payment"
+								>
+							</div>
+
+							<select id="expensePageLength" class="form-select filter-dropdown expense-report-page-length" aria-label="Page length">
+								<option value="10" selected>10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+							</select>
+
+							<button type="button" id="expenseRefreshBtn" class="btn expense-report-refresh-btn" title="Refresh">
+								<i class="fa-solid fa-rotate-right"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="card content-card">
+					<div class="card-body">
+						<div class="table-responsive premium-table-box expense-report-table-shell">
+							<table class="table align-middle mb-0 table-hover expense-report-table datatable-init dt-no-first-col-width dt-no-col-menu" id="expenseReportTable">
+								<thead>
+									<tr>
+										<th>Date</th>
+										<th>Particulars</th>
+										<th>Amount</th>
+										<th>Payment Mode</th>
+										<th>Remarks</th>
+										<th>Status</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody id="expenseReportTableBody"></tbody>
+							</table>
+						</div>
+
+						<template id="expenseDateTemplate">
+							<span class="expense-date"></span>
+						</template>
+
+						<template id="expenseParticularsTemplate">
+							<span class="expense-particulars"></span>
+						</template>
+
+						<template id="expenseAmountTemplate">
+							<span class="expense-amount"></span>
+						</template>
+
+						<template id="expensePaymentModeTemplate">
+							<span class="expense-payment-mode"></span>
+						</template>
+
+						<template id="expenseRemarksTemplate">
+							<span class="expense-remarks"></span>
+						</template>
+
+						<template id="expenseStatusTemplate">
+							<span class="expense-status-badge">Paid</span>
+						</template>
+
+						<template id="expenseActionsTemplate">
+							<div class="d-flex justify-content-center expense-action-wrap">
+								<button type="button" class="action-btn action-btn-delete expense-delete-btn" title="Delete">
+									<i class="fa-solid fa-trash-can"></i>
+								</button>
+							</div>
+						</template>
+
+						<app-datatable></app-datatable>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../shared/components/component.js"></script>
+	<script src="../shared/components/data_table.js"></script>
+	<script src="scripts/expense-report.js"></script>
+	<script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

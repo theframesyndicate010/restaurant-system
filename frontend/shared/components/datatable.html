@@ -1,0 +1,45 @@
+<!-- DataTables Custom HTML Templates (Global Provider) -->
+<template id="dt-menu-template">
+    <div class="col-header-menu" data-col="{colIndex}">
+        <div class="col-menu-section">
+            <div class="col-menu-filter-row">
+                <i class="fa-solid fa-filter col-menu-icon"></i>
+                <select class="col-menu-filter-type">
+                    <option value="contains" selected>Contains</option>
+                    <option value="exact">Exact Match</option>
+                    <option value="startsWith">Starts With</option>
+                    <option value="endsWith">Ends With</option>
+                </select>
+            </div>
+            <div class="col-menu-search-row">
+                <i class="fa-solid fa-magnifying-glass col-menu-icon"></i>
+                <input type="text" class="col-menu-search" placeholder="Filter {headerText}..." />
+            </div>
+        </div>
+        <div class="col-menu-divider"></div>
+        <div class="col-menu-section">
+            <button class="col-menu-item col-menu-sort-asc" data-col="{colIndex}">
+                <i class="fa-solid fa-arrow-up-short-wide"></i>
+                <span>Sort Ascending</span>
+                <i class="fa-solid fa-check col-menu-check"></i>
+            </button>
+            <button class="col-menu-item col-menu-sort-desc" data-col="{colIndex}">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+                <span>Sort Descending</span>
+                <i class="fa-solid fa-check col-menu-check"></i>
+            </button>
+            <button class="col-menu-item col-menu-clear-sort" data-col="{colIndex}">
+                <i class="fa-solid fa-filter-circle-xmark"></i>
+                <span>Clear Sort</span>
+            </button>
+        </div>
+    </div>
+</template>
+
+<template id="dt-zero-records"><div class="dt-empty-state"><i class="fa-solid fa-filter-circle-xmark"></i><span>No matching records found</span></div></template>
+<template id="dt-empty-table"><div class="dt-empty-state"><i class="fa-solid fa-inbox"></i><span>No data available in table</span></div></template>
+<template id="dt-search-icon"><i class="fa-solid fa-magnifying-glass dt-search-icon"></i></template>
+<template id="dt-paginate-first"><i class="fa-solid fa-angles-left"></i></template>
+<template id="dt-paginate-last"><i class="fa-solid fa-angles-right"></i></template>
+<template id="dt-paginate-next"><i class="fa-solid fa-chevron-right"></i></template>
+<template id="dt-paginate-prev"><i class="fa-solid fa-chevron-left"></i></template>

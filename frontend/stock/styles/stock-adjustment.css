@@ -1,0 +1,101 @@
+/* Stock Adjustment page specific styles */
+
+.stock-adjustment-card {
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    background-color: #ffffff;
+}
+
+.stock-adjustment-header {
+    border-color: #f1f5f9 !important;
+}
+
+.stock-adjustment-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.stock-adjustment-title {
+    font-size: 1.15rem;
+}
+
+.stock-section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1a56db;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.stock-adjustment-form .row > [class*="col-"] {
+    display: flex;
+}
+
+.stock-adjustment-form .floaty-input {
+    width: 100%;
+}
+
+.stock-adjustment-form .floaty-input .form-control {
+    min-height: 46px;
+}
+
+#currentStock {
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+#adjustRemarks {
+    min-height: 110px;
+}
+
+.stock-note-alert {
+    background-color: #fff8f1;
+    border: 1px solid #ffe8cc;
+    color: #d97706;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.stock-action-row {
+    border-color: #f1f5f9 !important;
+}
+
+.stock-btn-muted {
+    border-color: #e2e8f0 !important;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.stock-btn-primary {
+    background-color: #1a56db;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: none;
+}
+
+.stock-btn-primary:hover {
+    background-color: #1e40af;
+}
+
+#stockAdjustmentMessage {
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (max-width: 767.98px) {
+    .stock-action-row {
+        flex-direction: column;
+    }
+
+    .stock-action-row .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

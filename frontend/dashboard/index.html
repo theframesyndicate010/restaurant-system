@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!-- Sidebar Component -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1 dash-bg d-flex flex-column h-100 overflow-hidden">
+
+            <!-- Top Header Component -->
+            <app-header></app-header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-scroll overflow-auto">
+                <div class="container-fluid p-3 p-md-4">
+
+                    <!-- ==============================
+                         TOP HEADER: Today's Transactions
+                         ============================== -->
+                    <div
+                        class="dash-header-row d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-3 fade-in-up delay-1">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="dash-icon-box bg-success-icon">
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-0 fw-bold dash-main-title">Today's Transactions</h4>
+                                <p class="text-muted mb-0 small" id="dash-date">Wednesday, April 8, 2026</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <div class="dash-stat-badge bg-navy">
+                                <div class="d-flex flex-column">
+                                    <span class="dash-stat-label">Today Net Sales</span>
+                                    <span class="dash-stat-value">Rs 0</span>
+                                </div>
+                                <div class="dash-stat-icon">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                </div>
+                            </div>
+                            <div class="dash-stat-badge bg-navy">
+                                <div class="d-flex flex-column">
+                                    <span class="dash-stat-label">Today Purchase</span>
+                                    <span class="dash-stat-value">Rs 0</span>
+                                </div>
+                                <div class="dash-stat-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==============================
+                         PAYMENT METHODS ROW
+                         ============================== -->
+                    <div class="row g-2 g-md-3 mb-3 mb-md-4 fade-in-up delay-1">
+                        <div class="col-6 col-md-3">
+                            <div class="payment-card">
+                                <div class="payment-icon bg-green-icon">
+                                    <i class="fa-solid fa-money-bill-alt"></i>
+                                </div>
+                                <h6 class="payment-label">Cash</h6>
+                                <h5 class="payment-amount">Rs 0.00</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="payment-card">
+                                <div class="payment-icon bg-blue-icon">
+                                    <i class="fa-solid fa-mobile-alt"></i>
+                                </div>
+                                <h6 class="payment-label">PhonePe</h6>
+                                <h5 class="payment-amount">Rs 0.00</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="payment-card">
+                                <div class="payment-icon bg-orange-icon">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </div>
+                                <h6 class="payment-label">E-Payment</h6>
+                                <h5 class="payment-amount">Rs 0.00</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="payment-card">
+                                <div class="payment-icon bg-yellow-icon">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                </div>
+                                <h6 class="payment-label">Credit</h6>
+                                <h5 class="payment-amount">Rs 0.00</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==============================
+                         STATS + CHARTS ROW
+                         ============================== -->
+                    <div class="row g-2 g-md-3 mb-3 mb-md-4 fade-in-up delay-2">
+                        <!-- Left: Quick Stats -->
+                        <div class="col-12 col-lg-3">
+                            <div class="dash-card h-100 p-3 d-flex flex-column gap-3 justify-content-center">
+                                <!-- Total Sales Amount -->
+                                <div class="quick-stat-item">
+                                    <div class="quick-stat-icon border-success text-success">
+                                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                                    </div>
+                                    <div>
+                                        <p class="quick-stat-label">Total Sales Amount</p>
+                                        <h5 class="quick-stat-value">Rs 0.00</h5>
+                                    </div>
+                                </div>
+                                <!-- Total Discount Amount -->
+                                <div class="quick-stat-item">
+                                    <div class="quick-stat-icon border-primary text-primary">
+                                        <i class="fa-solid fa-tags"></i>
+                                    </div>
+                                    <div>
+                                        <p class="quick-stat-label">Total Discount Amount</p>
+                                        <h5 class="quick-stat-value">Rs 0.00</h5>
+                                    </div>
+                                </div>
+                                <!-- Average Order Value -->
+                                <div class="quick-stat-item">
+                                    <div class="quick-stat-icon border-warning text-warning">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <p class="quick-stat-label">Average Order Value</p>
+                                        <h5 class="quick-stat-value">Rs 0.00</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Center: No. Of Orders Chart -->
+                        <div class="col-12 col-lg-4point5">
+                            <div class="dash-card h-100 p-3">
+                                <h6 class="fw-bold mb-3"><i class="fa-solid fa-chart-pie text-dark me-2"></i> No. Of
+                                    Orders</h6>
+                                <div class="chart-container" style="position: relative; height:200px;">
+                                    <canvas id="ordersChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Kitchen & Bar Sales Chart -->
+                        <div class="col-12 col-lg-4point5">
+                            <div class="dash-card h-100 p-3">
+                                <h6 class="fw-bold mb-3"><i class="fa-solid fa-utensils text-dark me-2"></i> Kitchen &
+                                    Bar Sales (Rs.)</h6>
+                                <div class="chart-container" style="position: relative; height:200px;">
+                                    <canvas id="salesChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==============================
+                         TODAY'S OPERATIONS
+                         ============================== -->
+                    <div class="fade-in-up delay-3 mb-4">
+                        <div class="d-flex align-items-center mb-3 gap-2">
+                            <div class="ops-section-icon">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0 dash-main-title">Today's Operations</h5>
+                        </div>
+
+                        <div class="row g-2 g-md-3">
+                            <!-- Orders in Progress -->
+                            <div class="col-12 col-md-4">
+                                <div class="parchment-wrapper h-100">
+                                    <div class="parchment-card w-100 h-100">
+                                        <div class="parchment-header">
+                                            <i class="fa-solid fa-clipboard-check me-2"></i>Orders in Progress
+                                        </div>
+                                        <div class="parchment-body">
+                                            <div class="d-flex justify-content-around align-items-center mb-3">
+                                                <!-- Ready -->
+                                                <div class="gauge-item">
+                                                    <div class="gauge-ring-container gauge-green">
+                                                        <div class="gauge-ring-inner">
+                                                            <span class="gauge-number">0</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="gauge-label">Ready</span>
+                                                </div>
+                                                <!-- Processing -->
+                                                <div class="gauge-item">
+                                                    <div class="gauge-ring-container gauge-yellow">
+                                                        <div class="gauge-ring-inner">
+                                                            <span class="gauge-number">0</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="gauge-label">Processing</span>
+                                                </div>
+                                                <!-- Cancelled -->
+                                                <div class="gauge-item">
+                                                    <div class="gauge-ring-container gauge-red">
+                                                        <div class="gauge-ring-inner">
+                                                            <span class="gauge-number">0</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="gauge-label">Cancelled</span>
+                                                </div>
+                                            </div>
+                                            <!-- Gradient bar -->
+                                            <div class="ops-gradient-bar">
+                                                <div class="gradient-segment seg-green"></div>
+                                                <div class="gradient-segment seg-yellow"></div>
+                                                <div class="gradient-segment seg-red"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-around mt-1">
+                                                <span class="ops-bar-label">0</span>
+                                                <span class="ops-bar-label">0</span>
+                                                <span class="ops-bar-label">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table Occupancy -->
+                            <div class="col-12 col-md-4">
+                                <div class="parchment-wrapper h-100">
+                                    <div class="parchment-card w-100 h-100">
+                                        <div class="parchment-header">
+                                            <i class="fa-solid fa-chair me-2"></i>Table Occupancy
+                                        </div>
+                                        <div class="parchment-body">
+                                            <div class="d-flex align-items-center justify-content-center gap-4 mb-3">
+                                                <!-- Vacant -->
+                                                <div class="gauge-item">
+                                                    <div class="gauge-ring-container gauge-teal">
+                                                        <div class="gauge-ring-inner">
+                                                            <span class="gauge-number">15</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="gauge-label">Vacant</span>
+                                                </div>
+                                                <span class="text-muted small gauge-dash">—</span>
+                                                <!-- Reserved -->
+                                                <div class="gauge-item">
+                                                    <div class="gauge-ring-container gauge-gold">
+                                                        <div class="gauge-ring-inner">
+                                                            <span class="gauge-number">1</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="gauge-label">Reserved</span>
+                                                </div>
+                                                <span class="fw-bold text-dark small ms-2">Total Tables: 16</span>
+                                            </div>
+                                            <!-- Progress bar -->
+                                            <div class="occupancy-bar">
+                                                <div class="occupancy-filled" style="width: 93.75%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Today's Best Menu -->
+                            <div class="col-12 col-md-4">
+                                <div class="parchment-wrapper h-100">
+                                    <div class="parchment-card w-100 h-100">
+                                        <div class="parchment-header">
+                                            <i class="fa-solid fa-utensils me-2"></i>Today's Best Menu
+                                        </div>
+                                        <div class="parchment-body d-flex flex-column align-items-center justify-content-center"
+                                            style="min-height: 120px;">
+                                            <div class="text-muted small text-center">
+                                                <i class="fa-solid fa-bowl-food mb-2"
+                                                    style="font-size: 2rem; opacity: 0.3;"></i>
+                                                <p class="mb-0">No menu items sold today</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component Scripts -->
+    <script src="../shared/components/component.js"></script>
+    <!-- Custom Script -->
+    <script src="../shared/scripts/script.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>

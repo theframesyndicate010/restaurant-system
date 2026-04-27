@@ -1,0 +1,86 @@
+<header class="topbar d-flex align-items-center justify-content-between px-3 px-md-4 py-2 bg-white">
+    <div class="d-flex align-items-center gap-2 gap-md-3 flex-shrink-0">
+        <button class="btn btn-light btn-sm" id="headerToggleBtn"><i class="fa-solid fa-bars"></i></button>
+    </div>
+
+    <div class="header-tabs mx-2">
+        <a href="/frontend/billing/billing.html" class="nav-tab btn fw-semibold text-decoration-none">BILLINGS</a>
+        <a href="/frontend/customer/customer-payment.html" class="nav-tab btn fw-semibold text-decoration-none">CUSTOMER PAYMENTS</a>
+        <a href="#" class="nav-tab btn fw-semibold text-decoration-none">DAY SALES</a>
+        <a href="/frontend/customer/customer-due.html" class="nav-tab btn fw-semibold text-decoration-none">CUSTOMER DUE</a>
+    </div>
+
+    <div class="header-actions">
+        <div class="position-relative notification-icon">
+            <i class="fa-solid fa-bell fs-5 text-muted"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" style="font-size: 0.6rem;">2</span>
+        </div>
+        <span class="badge bg-success status-badge px-3 py-2 fs-6 fw-normal rounded-3">Opened</span>
+        <i class="fa-solid fa-cog fs-5 text-muted header-settings-icon"></i>
+        <span class="text-primary fw-medium help-link"><i class="fa-regular fa-question-circle"></i> Help?</span>
+        
+        <!-- Profile with Popup -->
+        <div class="ms-2 border-start ps-2 d-flex align-items-center header-profile-wrap position-relative">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff&rounded=true" 
+                 alt="Profile" class="profile-img profile-trigger" id="profileTrigger" 
+                 style="width: 38px; height: 38px; cursor: pointer;">
+
+            <!-- Profile Popup Card -->
+            <div class="profile-popup" id="profilePopup">
+                <!-- Decorative top gradient -->
+                <div class="popup-header">
+                    <div class="popup-header-wave"></div>
+                    <div class="popup-avatar-wrap">
+                        <div class="popup-avatar-ring">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff&rounded=true&size=80" 
+                                 alt="Admin" class="popup-avatar">
+                        </div>
+                        <div class="popup-online-dot"></div>
+                    </div>
+                    <h6 class="popup-name">Admin</h6>
+                    <span class="popup-role">Administrator</span>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="popup-menu">
+                    <a href="#" class="popup-menu-item">
+                        <div class="popup-menu-icon bg-light-blue">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <span>Profile</span>
+                        <i class="fa-solid fa-chevron-right popup-arrow"></i>
+                    </a>
+                    <a href="#" class="popup-menu-item">
+                        <div class="popup-menu-icon bg-light-orange">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <span>Change Password</span>
+                        <i class="fa-solid fa-chevron-right popup-arrow"></i>
+                    </a>
+                    <a href="#" class="popup-menu-item">
+                        <div class="popup-menu-icon bg-light-green">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <span>Setup</span>
+                        <i class="fa-solid fa-chevron-right popup-arrow"></i>
+                    </a>
+                    <a href="#" class="popup-menu-item">
+                        <div class="popup-menu-icon bg-light-yellow">
+                            <i class="fa-solid fa-rotate"></i>
+                        </div>
+                        <span>IRD Sync</span>
+                        <i class="fa-solid fa-chevron-right popup-arrow"></i>
+                    </a>
+                </div>
+
+                <!-- Logout -->
+                <div class="popup-footer">
+                    <a href="#" class="popup-logout-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Log Out</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Stock Movement (Batch) - Smart Cafeteria</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="styles/add-stock-movement.css">
+    <link rel="icon" type="image/png" href="../favicon.png" />
+</head>
+
+<body>
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!-- Sidebar Component -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <!-- Top Header Component -->
+            <app-header></app-header>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="card content-card border-0 shadow-sm" style="border-radius: 12px;">
+                            <div class="card-body p-0">
+                                <!-- Grid Header -->
+                                <div class="p-4 border-bottom bg-white d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3"
+                                    style="border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                                    <div>
+                                        <h5 class="fw-bold mb-1">New Stock Movement</h5>
+                                        <p class="text-muted small mb-0">Record inventory transfers, issues, or
+                                            adjustments in batch mode.</p>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap gap-2 gap-md-3">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <label class="text-muted small fw-bold mb-0">Date:</label>
+                                            <input type="date" class="batch-input py-1" id="movementDate"
+                                                value="2026-04-10" style="width: auto; min-width: 130px;">
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <label class="text-muted small fw-bold mb-0">Type:</label>
+                                            <select
+                                                class="form-select form-select-sm movement-type-select border-primary-subtle bg-primary bg-opacity-10 text-primary"
+                                                id="movementType" style="min-width: 150px;">
+                                                <option value="Sent-to-Kitchen">Sent to Kitchen</option>
+                                                <option value="Stock In">Stock In</option>
+                                                <option value="Purchase">Purchase</option>
+                                                <option value="Wastage">Wastage / Loss</option>
+                                                <option value="Transfer">Internal Transfer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Grid Table -->
+                                <div class="table-responsive"
+                                    style="max-height: calc(100vh - 350px); overflow-y: auto;">
+                                    <table
+                                        class="table batch-table align-middle mb-0 text-nowrap table-bordered border-light-subtle">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50px;">#</th>
+                                                <th style="min-width: 250px;">Item Name <span
+                                                        class="text-danger">*</span></th>
+                                                <th style="width: 140px;">Code</th>
+                                                <th style="width: 100px;">Qty</th>
+                                                <th style="width: 120px;">Unit</th>
+                                                <th style="width: 130px;" class="text-end">Rate</th>
+                                                <th style="width: 150px;" class="text-end">Sub Total</th>
+                                                <th style="width: 50px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="movementGridBody">
+                                            <!-- Rows will be injected by JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Grid Footer -->
+                                <div class="p-3 bg-light bg-opacity-50 border-top text-end"
+                                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                                    <button class="btn btn-sm fw-bold batch-add-row-btn" onclick="addNewRow()">
+                                        <i class="fa-solid fa-plus-circle me-1"></i> Add Manual Row
+                                    </button>
+                                </div>
+
+                                <!-- Summary Bar -->
+                                <div class="summary-bar">
+                                    <div class="row g-4 align-items-end">
+                                        <div class="col-md-6">
+                                            <label class="stat-label mb-2 d-block">Remarks / Entry Note</label>
+                                            <textarea class="form-control border-light-subtle bg-light bg-opacity-25"
+                                                rows="2"
+                                                placeholder="Describe the reason for this movement..."></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex justify-content-md-end gap-3 align-items-center">
+                                                <div class="stat-card">
+                                                    <div class="stat-label">Total Items</div>
+                                                    <div class="stat-value text-center" id="totalItemsDisplay">0</div>
+                                                </div>
+                                                <div class="stat-card border-primary-subtle"
+                                                    style="background-color: #eff6ff;">
+                                                    <div class="stat-label text-primary">Grand Total</div>
+                                                    <div class="stat-value text-primary" id="grandTotalDisplay">Rs. 0.00
+                                                    </div>
+                                                </div>
+                                                <div class="ms-2">
+                                                    <button class="btn btn-primary px-4 py-2 fw-bold shadow-sm"
+                                                        style="border-radius: 8px;">
+                                                        <i class="fa-solid fa-cloud-arrow-up me-2"></i> Save Entry
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="movementRowTemplate">
+        <tr>
+            <td class="fw-bold text-muted bg-light bg-opacity-25 row-sn">1</td>
+            <td>
+                <select class="batch-input item-select" name="item_id">
+                    <option value="">Search/Select Item...</option>
+                    <option value="1" data-code="MILK-001" data-unit="Liter" data-rate="150">Fresh Milk (1L)</option>
+                    <option value="2" data-code="SUGR-023" data-unit="Kg" data-rate="90">Refined Sugar (1Kg)</option>
+                    <option value="3" data-code="COKE-122" data-unit="Pcs" data-rate="60">Coca Cola (250ml)</option>
+                    <option value="4" data-code="FLOR-554" data-unit="Bag" data-rate="4500">White Flour (25kg)</option>
+                </select>
+            </td>
+            <td><input type="text" class="batch-input item-code" name="code" readonly placeholder="---"></td>
+            <td><input type="number" class="batch-input text-center fw-bold qty-input" name="qty" value="1" min="1">
+            </td>
+            <td><input type="text" class="batch-input item-unit" name="unit" readonly placeholder="---"></td>
+            <td><input type="number" class="batch-input text-end rate-input" name="rate" placeholder="0.00"></td>
+            <td><input type="text" class="batch-input text-end fw-bold text-primary sub-total-input" name="sub_total"
+                    readonly value="0.00"></td>
+            <td>
+                <button class="btn btn-link btn-sm text-danger p-0 delete-row-btn" title="Remove">
+                    <i class="fa-solid fa-circle-xmark fs-5"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component Scripts -->
+    <script src="../shared/components/component.js"></script>
+    <!-- Custom Scripts -->
+    <script src="../shared/scripts/script.js"></script>
+    <script src="scripts/add_stock_movement.js"></script>
+</body>
+
+</html>

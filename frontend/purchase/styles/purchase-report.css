@@ -1,0 +1,246 @@
+/* Purchase Report styles */
+
+.purchase-report-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.purchase-report-filter-card .form-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 0.38rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.purchase-report-filter-card .filter-dropdown,
+.purchase-report-filter-card .filter-search-input {
+    min-height: 42px;
+}
+
+.purchase-report-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.purchase-report-load-btn {
+    min-height: 42px;
+    min-width: 98px;
+    border: none;
+    border-radius: 8px;
+    background: var(--blue-gradient);
+    color: #ffffff;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.purchase-report-load-btn:hover,
+.purchase-report-load-btn:focus,
+.purchase-report-load-btn:active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--primary-blue-dark) 100%) !important;
+}
+
+.purchase-report-icon-btn {
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchase-report-print-btn {
+    background: #f1f5f9;
+    border: 1px solid #d5dfeb;
+    color: #334155;
+}
+
+.purchase-report-print-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.purchase-report-pdf-btn {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.purchase-report-pdf-btn:hover {
+    background: #b91c1c;
+    color: #ffffff;
+}
+
+.purchase-report-table-shell {
+    overflow-x: hidden !important;
+}
+
+.purchase-report-table {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed;
+}
+
+.purchase-report-page .premium-table-box .dt-table-scroll {
+    overflow-x: hidden !important;
+}
+
+.purchase-report-page .premium-table-box .dt-table-scroll > table.dataTable {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed;
+}
+
+.purchase-report-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.purchase-report-table td {
+    font-size: 0.82rem;
+    vertical-align: middle;
+    padding-inline: 0.55rem !important;
+}
+
+.purchase-report-table th:nth-child(1),
+.purchase-report-table td:nth-child(1) {
+    width: 5%;
+}
+
+.purchase-report-table th:nth-child(2),
+.purchase-report-table td:nth-child(2) {
+    width: 9%;
+}
+
+.purchase-report-table th:nth-child(3),
+.purchase-report-table td:nth-child(3) {
+    width: 15%;
+}
+
+.purchase-report-table th:nth-child(4),
+.purchase-report-table td:nth-child(4) {
+    width: 12%;
+}
+
+.purchase-report-table th:nth-child(5),
+.purchase-report-table td:nth-child(5),
+.purchase-report-table th:nth-child(6),
+.purchase-report-table td:nth-child(6),
+.purchase-report-table th:nth-child(7),
+.purchase-report-table td:nth-child(7),
+.purchase-report-table th:nth-child(8),
+.purchase-report-table td:nth-child(8) {
+    width: 11%;
+}
+
+.purchase-report-table th:nth-child(9),
+.purchase-report-table td:nth-child(9) {
+    width: 15%;
+}
+
+.purchase-report-table td:nth-child(1),
+.purchase-report-table td:nth-child(2),
+.purchase-report-table td:nth-child(4),
+.purchase-report-table td:nth-child(5),
+.purchase-report-table td:nth-child(6),
+.purchase-report-table td:nth-child(7),
+.purchase-report-table td:nth-child(8) {
+    white-space: nowrap;
+}
+
+.purchase-report-supplier,
+.purchase-report-invoice,
+.purchase-report-remarks {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.purchase-report-sn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.purchase-report-date,
+.purchase-report-invoice {
+    color: #334155;
+    font-weight: 600;
+}
+
+.purchase-report-supplier {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.purchase-report-amount,
+.purchase-report-paid {
+    color: var(--accent-blue);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.purchase-report-discount {
+    color: #b45309;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.purchase-report-due {
+    color: #b91c1c;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.purchase-report-remarks {
+    color: #64748b;
+}
+
+.purchase-report-table tfoot td {
+    background: #f8fafc !important;
+    border-top: 2px solid #dbe6f4 !important;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.purchase-report-total-label {
+    font-size: 1.15rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: #0f172a;
+}
+
+.purchase-report-total-value {
+    font-variant-numeric: tabular-nums;
+    color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    .purchase-report-actions,
+    .purchase-report-load-btn,
+    .purchase-report-icon-btn {
+        width: 100%;
+    }
+}

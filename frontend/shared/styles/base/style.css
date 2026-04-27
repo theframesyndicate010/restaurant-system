@@ -1,0 +1,923 @@
+:root {
+    --bg-color: #f0f4f8;
+    --sidebar-bg: #0f172a;
+    --sidebar-hover: #1e293b;
+    --sidebar-active: #1e293b;
+    --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --teal-gradient: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+    --blue-gradient: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+
+    /* New design system colors */
+    --primary-blue: #1a3a8f;
+    --primary-blue-dark: #122b6e;
+    --primary-blue-light: #2563eb;
+    --accent-blue: #1a73e8;
+    --header-bg: linear-gradient(135deg, #0d1b4a 0%, #1a3a8f 100%);
+    --card-bg: #ffffff;
+    --page-bg: #eef2f7;
+    --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
+
+    --light-green: #dcfce7;
+    --light-blue: #dbeafe;
+    --light-orange: #ffedd5;
+    --light-yellow: #fef9c3;
+    --orange: #f97316;
+
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --text-heading: #1e293b;
+
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --card-radius: 12px;
+}
+
+/* ================================================
+   BASE STYLES
+   ================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--page-bg);
+    margin: 0;
+    padding: 0;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--text-dark);
+}
+
+.wrapper {
+    min-height: 100dvh;
+    position: relative;
+    min-width: 0;
+}
+
+/* Normalize Bootstrap's vh utility for better mobile viewport behavior */
+.wrapper.vh-100 {
+    height: 100dvh !important;
+}
+
+/* Utility */
+.min-width-0 {
+    min-width: 0;
+}
+
+
+/* ================================================
+   MAIN CONTENT AREA
+   ================================================ */
+
+.main-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+    min-width: 0;
+    background-color: var(--page-bg);
+}
+
+.dashboard-scroll,
+.main-content > .container-fluid.overflow-auto {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.bg-light-gray {
+    background-color: var(--page-bg) !important;
+}
+
+
+/* ================================================
+   PAGE HEADER CARD (Title + Subtitle + Action Button)
+   ================================================ */
+.page-header-card {
+    background: var(--header-bg);
+    border: none !important;
+    border-radius: var(--card-radius) !important;
+    box-shadow: 0 4px 15px rgba(13, 27, 74, 0.2);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.page-header-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.page-header-card .card-body {
+    padding: 1.25rem 1.75rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+.page-header-title {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+    letter-spacing: -0.01em;
+}
+
+.page-header-subtitle {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.page-header-btn {
+    background-color: var(--accent-blue) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
+    white-space: nowrap;
+}
+
+.page-header-btn:hover {
+    background-color: #1557b0 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.45);
+}
+
+.page-header-btn i {
+    font-size: 0.8rem;
+}
+
+
+/* ================================================
+   FILTER / TOOLBAR CARD
+   ================================================ */
+.filter-toolbar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--card-radius) !important;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.25rem;
+}
+
+.filter-toolbar-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+/* Filter controls styling */
+.filter-dropdown {
+    background-color: #ffffff;
+    border: 1.5px solid #d1d9e6;
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.filter-dropdown:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+    outline: none;
+}
+
+.filter-search-input {
+    background-color: #ffffff;
+    border: 1.5px solid #d1d9e6;
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.filter-search-input::placeholder {
+    color: #94a3b8;
+}
+
+.filter-search-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+    outline: none;
+}
+
+.filter-search-btn {
+    background-color: var(--primary-blue) !important;
+    border: none !important;
+    color: #ffffff !important;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.filter-search-btn:hover {
+    background-color: var(--primary-blue-dark) !important;
+    transform: translateY(-1px);
+}
+
+.filter-search-btn i {
+    font-size: 0.9rem;
+}
+
+/* Auto-generated page function toolbar */
+.auto-function-toolbar-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+.auto-toolbar-note {
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+}
+
+.auto-toolbar-controls {
+    min-height: 42px;
+}
+
+.auto-toolbar-search {
+    min-width: 240px;
+}
+
+.auto-toolbar-length {
+    width: 105px;
+}
+
+.auto-toolbar-refresh,
+.auto-toolbar-button {
+    min-width: 52px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: 1px solid #d1d9e6;
+    background-color: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.auto-toolbar-button {
+    padding-inline: 0.9rem;
+}
+
+.auto-toolbar-refresh:hover,
+.auto-toolbar-button:hover {
+    background-color: #eef2f7;
+    color: #0f172a;
+}
+
+
+/* ================================================
+   MAIN CONTENT CARD (wraps table)
+   ================================================ */
+.content-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--card-radius) !important;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.content-card .card-body {
+    padding: 15px !important;
+}
+
+
+/* ================================================
+   PREMIUM TABLE BOX (Redesigned)
+   ================================================ */
+.premium-table-box {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: none;
+    border: none;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 0;
+    position: relative;
+    /* Smooth scroll indicator shadows */
+    background: 
+        linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
+        radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .15), rgba(0, 0, 0, 0)),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .15), rgba(0, 0, 0, 0)) 0 100%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 40px 100%, 40px 100%, 12px 100%, 12px 100%;
+    background-attachment: local, local, scroll, scroll;
+}
+
+.premium-table-box table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: max-content;
+    min-width: 100%;
+}
+
+.premium-table-box thead {
+    background: var(--primary-blue);
+}
+
+.premium-table-box thead th {
+    color: #ffffff !important;
+    font-size: 0.72rem;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.95rem 1.25rem !important;
+    border: none !important;
+    white-space: nowrap;
+}
+
+/* Keep table header font-size consistent across all pages. */
+.premium-table-box thead th,
+table.dataTable thead th,
+.table thead th {
+    font-size: 0.72rem !important;
+}
+
+.premium-table-box tbody tr {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.premium-table-box tbody tr:hover {
+    background-color: #f8fafc !important;
+}
+
+.premium-table-box tbody td {
+    padding: 0.85rem 1.25rem !important;
+    color: #334155;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #f1f5f9 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    vertical-align: middle;
+}
+
+.premium-table-box tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.premium-table-box tfoot {
+    background-color: #f1f5f9;
+}
+
+.premium-table-box tfoot td {
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    padding: 1rem 1.25rem !important;
+    border-top: 2px solid #cbd5e1 !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.premium-table-box .table {
+    --bs-table-bg: transparent;
+    --bs-table-border-color: transparent;
+}
+
+/* Premium Badges & Avatars */
+.premium-table-box .badge {
+    padding: 0.4em 0.85em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    letter-spacing: 0.025em;
+}
+
+.premium-table-box .avatar-placeholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, #64748b, #475569);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================
+   STATUS BADGES (New design)
+   ================================================ */
+.badge-active {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+    font-weight: 600;
+    font-size: 0.78rem;
+    padding: 0.35em 0.85em;
+    border-radius: 6px;
+}
+
+.badge-inactive {
+    background-color: #fee2e2 !important;
+    color: #dc2626 !important;
+    font-weight: 600;
+    font-size: 0.78rem;
+    padding: 0.35em 0.85em;
+    border-radius: 6px;
+}
+
+.badge-role {
+    font-weight: 600;
+    font-size: 0.78rem;
+    padding: 0.35em 0.85em;
+    border-radius: 6px;
+}
+
+/* ================================================
+   TABLE ACTION BUTTONS (Circle icons)
+   ================================================ */
+.action-btn {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    padding: 0;
+}
+
+.action-btn-view {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+}
+
+.action-btn-view:hover {
+    background-color: var(--primary-blue-dark);
+    transform: scale(1.1);
+}
+
+.action-btn-edit {
+    background-color: #f97316;
+    color: #ffffff;
+}
+
+.action-btn-edit:hover {
+    background-color: #ea580c;
+    transform: scale(1.1);
+}
+
+.action-btn-delete {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.action-btn-delete:hover {
+    background-color: #dc2626;
+    transform: scale(1.1);
+}
+
+/* Serial Number Badge (Blue circle) */
+.sn-badge {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+
+/* ================================================
+   PREMIUM PAGINATION (Redesigned)
+   ================================================ */
+.premium-pagination-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+    .premium-pagination-container {
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+.premium-pagination-info {
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.premium-pagination {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border: 1px solid #d1d9e6;
+    overflow: hidden;
+}
+
+.premium-pagination .page-item {
+    border-right: 1px solid #d1d9e6;
+}
+
+.premium-pagination .page-item:last-child {
+    border-right: none;
+}
+
+.premium-pagination .page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    background-color: #ffffff;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.premium-pagination .page-item:hover:not(.disabled):not(.active) .page-link {
+    background-color: #f0f4ff;
+    color: var(--primary-blue-dark);
+}
+
+.premium-pagination .page-item.active .page-link {
+    z-index: 3;
+    color: #ffffff;
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.premium-pagination .page-item.disabled .page-link {
+    color: #94a3b8;
+    pointer-events: none;
+    background-color: #f8fafc;
+}
+
+.top-25 {
+    top: 25%;
+}
+
+
+/* ================================================
+   SECTION TITLE
+   ================================================ */
+.section-title {
+    font-size: 1.15rem;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.rounded-4 {
+    border-radius: 1.25rem !important;
+}
+
+
+/* ================================================
+   FORM CONTROLS (Refined)
+   ================================================ */
+.form-control,
+.form-select {
+    border: 1.5px solid #d1d9e6;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+}
+
+.form-control-solid {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #334155;
+    transition: all 0.2s;
+}
+
+.form-control-solid:focus {
+    background-color: #ffffff;
+    border: 1.5px solid var(--primary-blue) !important;
+    box-shadow: 0 0 0 1.5px #ffffff, 0 0 0 3px var(--primary-blue), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    outline: none !important;
+}
+
+.form-control-solid::placeholder {
+    color: #94a3b8;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.4rem;
+}
+
+
+/* ================================================
+   CARD OVERRIDES (Match reference design)
+   ================================================ */
+.card {
+    border-radius: var(--card-radius) !important;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+}
+
+
+/* ================================================
+   ENTRY ANIMATIONS
+   ================================================ */
+
+.fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar Elements */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* ================================================
+   RESPONSIVE: TABLET LANDSCAPE (1024–1279px)
+   ================================================ */
+
+@media (max-width: 1279px) and (min-width: 1025px) {
+    .sidebar {
+        width: 72px;
+    }
+
+    .sidebar.expanded {
+        width: 230px;
+    }
+}
+
+
+/* ================================================
+   RESPONSIVE: TABLET PORTRAIT (769–1024px)
+   ================================================ */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .sidebar {
+        width: 68px;
+    }
+
+    .sidebar.expanded {
+        width: 220px;
+    }
+
+    .topbar {
+        height: auto;
+        min-height: 60px;
+    }
+
+    .nav-tab {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+
+    .status-badge {
+        display: none;
+    }
+
+    .help-link {
+        display: none;
+    }
+
+    .stat-value {
+        font-size: 1.15rem;
+    }
+
+    .bg-icon-right {
+        font-size: 4rem;
+    }
+}
+
+
+/* ================================================
+   RESPONSIVE: MOBILE (≤768px)
+   ================================================ */
+
+/* ================================================
+   RESPONSIVE: MOBILE (≤768px)
+   ================================================ */
+
+@media (max-width: 768px) {
+
+    /* ---- Layout ---- */
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .main-content {
+        height: 100%;
+        width: 100% !important;
+    }
+
+    /* ---- Header / Topbar ---- */
+    .topbar {
+        height: auto;
+        min-height: 60px;
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    .header-tabs {
+        gap: 0.3rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 5px;
+        scrollbar-width: none;
+    }
+
+    .header-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-tab {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        white-space: nowrap;
+    }
+
+    /* Hide non-essential header items */
+    .status-badge,
+    .help-link,
+    .header-settings-icon {
+        display: none !important;
+    }
+
+    /* ---- Page Content ---- */
+    .container-fluid {
+        padding: 0.75rem !important;
+    }
+
+    /* Global page header card responsive tweaks */
+    .page-header-card .card-body {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+
+    .page-header-card .d-flex.gap-2 {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .page-header-title {
+        font-size: 1.15rem;
+    }
+
+    .page-header-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .auto-toolbar-note {
+        width: 100%;
+    }
+
+    .auto-toolbar-controls {
+        width: 100%;
+    }
+
+    .auto-toolbar-search {
+        width: calc(100% - 170px);
+        min-width: 170px;
+        flex: 1;
+    }
+}
+
+
+/* ================================================
+   RESPONSIVE: EXTRA SMALL MOBILE (≤450px)
+   ================================================ */
+
+@media (max-width: 450px) {
+    .page-header-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Scale down action buttons for narrow screens */
+    .premium-table-box .btn-sm,
+    .premium-table-box .action-btn {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.75rem !important;
+        min-width: 28px !important;
+        height: 28px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .profile-popup {
+        width: 240px !important;
+    }
+}

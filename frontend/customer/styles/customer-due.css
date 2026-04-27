@@ -1,0 +1,27 @@
+/* Styling for customer-due specific elements */
+
+/* Enhanced Pay Button */
+.btn-pay {
+    transition: all 0.2s ease;
+}
+
+.btn-pay:hover {
+    background-color: #16a34a !important;
+    border-color: #15803d !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(34, 197, 94, 0.3) !important;
+}
+
+.btn-pay i {
+    transition: transform 0.2s ease;
+}
+
+.btn-pay:hover i {
+    transform: scale(1.1);
+}
+
+/* Name Cell (local override for this page if needed) */
+.name-cell {
+    font-weight: 600;
+    color: #1e293b;
+}

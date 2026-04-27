@@ -1,0 +1,29 @@
+/* Product Items Specific Styles */
+
+/* 1. Table Column specific widths */
+.premium-table-box th:nth-child(3), 
+.premium-table-box td:nth-child(3) {
+    min-width: 160px !important; /* Product Name */
+}
+
+.premium-table-box th:nth-child(4), 
+.premium-table-box td:nth-child(4) {
+    min-width: 140px !important; /* Category */
+}
+
+.premium-table-box th:nth-child(7), 
+.premium-table-box td:nth-child(7) {
+    min-width: 120px !important; /* Code */
+}
+
+.premium-table-box th:nth-child(8), 
+.premium-table-box td:nth-child(8),
+.premium-table-box th:nth-child(9), 
+.premium-table-box td:nth-child(9) {
+    min-width: 110px !important; /* Stock levels */
+}
+
+/* 2. Action buttons spacing refinement */
+.premium-table-box .justify-content-center.gap-2 {
+    min-width: 110px;
+}

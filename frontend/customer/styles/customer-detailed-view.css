@@ -1,0 +1,19 @@
+/* Customer Detailed View Specific Styles */
+
+/* 1. Table Column specific widths */
+.premium-table-box th:nth-child(2), 
+.premium-table-box td:nth-child(2) {
+    min-width: 120px !important; /* Type */
+}
+
+.premium-table-box th:nth-child(3), 
+.premium-table-box td:nth-child(3) {
+    min-width: 100px !important; /* Ref No */
+}
+
+/* 2. Responsive force width */
+@media (max-width: 768px) {
+    .premium-table-box table.dataTable {
+        min-width: 900px; /* Many financial columns need width */
+    }
+}

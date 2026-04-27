@@ -1,0 +1,20 @@
+/* Product Category Specific Styles */
+
+/* 1. Table Column specific widths */
+.premium-table-box th:nth-child(3), 
+.premium-table-box td:nth-child(3) {
+    min-width: 180px !important; /* Category Name */
+}
+
+.premium-table-box th:nth-child(4), 
+.premium-table-box td:nth-child(4) {
+    min-width: 100px !important; /* Status */
+}
+
+/* 2. Responsive adjustments */
+@media (max-width: 768px) {
+    .premium-table-box .table th, 
+    .premium-table-box .table td {
+        min-width: 90px;
+    }
+}

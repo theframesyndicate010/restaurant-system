@@ -1,0 +1,157 @@
+/* Supplier due payment page styles */
+
+.supplier-due-payment-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.supplier-due-payment-page .supplier-payment-card {
+    border: 1px solid #e6edf5;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px -24px rgba(15, 23, 42, 0.45);
+    overflow: hidden;
+}
+
+.supplier-due-payment-page .supplier-payment-head {
+    border-color: #edf2f7 !important;
+}
+
+.supplier-due-payment-page .supplier-payment-head-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(26, 115, 232, 0.1);
+    color: var(--accent-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.9rem;
+    font-size: 1.05rem;
+}
+
+.supplier-due-payment-page .supplier-payment-back-btn {
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.52rem 1.02rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.supplier-due-payment-page .supplier-payment-back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.72);
+    color: #ffffff;
+}
+
+.supplier-due-payment-page .form-control-solid {
+    min-height: 47px;
+    border: 1px solid #d7e0ea !important;
+    background-color: #f9fbfd !important;
+}
+
+.supplier-due-payment-page .floaty-input .form-control:focus {
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.11);
+}
+
+.supplier-payment-table-wrap {
+    border-color: #dbe5f0 !important;
+}
+
+.supplier-payment-table thead th {
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.87rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.supplier-payment-table td {
+    font-size: 0.88rem;
+    vertical-align: middle;
+}
+
+.supplier-payment-sn {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.supplier-payment-view-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: var(--primary-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s ease;
+}
+
+.supplier-payment-view-btn:hover {
+    background-color: #eff6ff;
+    border-color: #93c5fd;
+    color: var(--primary-blue-dark);
+}
+
+.supplier-payment-total-line {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.supplier-payment-total-value {
+    margin-left: 0.35rem;
+    color: #dc2626;
+    font-size: 1.35rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.supplier-due-payment-page .supplier-payment-note {
+    background-color: #fff8f1;
+    border: 1px solid #ffe7cb;
+    color: #b45309;
+    border-radius: 8px;
+    font-size: 0.86rem;
+}
+
+.supplier-due-payment-page .supplier-payment-actions {
+    border-color: #edf2f7 !important;
+}
+
+.supplier-due-payment-page .supplier-payment-save-btn {
+    background: var(--blue-gradient);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.supplier-due-payment-page .supplier-payment-save-btn:hover,
+.supplier-due-payment-page .supplier-payment-save-btn:focus {
+    background: linear-gradient(135deg, #173886 0%, #1e5fd4 100%);
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .supplier-due-payment-page .supplier-payment-actions {
+        flex-wrap: wrap;
+    }
+
+    .supplier-due-payment-page .supplier-payment-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

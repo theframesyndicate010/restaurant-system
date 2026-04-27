@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product (Batch) - Smart Cafeteria</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="../table/styles/datatable.css">
+    <link rel="stylesheet" href="styles/add-product-items.css">
+    <link rel="icon" type="image/png" href="../favicon.png" />
+</head>
+
+<body>
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!-- Sidebar Component -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <!-- Top Header Component -->
+            <app-header></app-header>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="card content-card border-0 shadow-sm" style="border-radius: 12px;">
+                            <div class="card-body p-0">
+                                <!-- Grid Header -->
+                                <div class="p-4 border-bottom bg-white d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3"
+                                    style="border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                                    <div class="d-flex flex-column gap-1">
+                                        <div
+                                            class="d-flex flex-md-row flex-column align-items-md-center align-items-start gap-3 mb-1">
+                                            <h5 class="fw-bold mb-0">Add New Product</h5>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <label class="text-muted small fw-medium mb-0">Category:</label>
+                                                <select
+                                                    class="form-select form-select-sm fw-bold border-primary-subtle bg-primary bg-opacity-10 text-primary"
+                                                    style="border-radius: 50px; min-width: 160px; height: 32px; font-size: 0.85rem; cursor: pointer;">
+                                                    <option value="1" selected>Cold Drinks</option>
+                                                    <option value="2">Main Course</option>
+                                                    <option value="3">Supplies</option>
+                                                    <option value="4">Bakery</option>
+                                                    <option value="5">Appetizers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted small mb-0">Fill in the details below. Press <kbd
+                                                class="bg-light text-dark border">Enter</kbd> on the last column to
+                                            create a new row.</p>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-wrap w-100 w-md-auto">
+                                        <button class="btn btn-outline-secondary btn-sm px-3 flex-grow-1 flex-md-grow-0"
+                                            onclick="location.reload()">
+                                            <i class="fa-solid fa-rotate-right me-1"></i> Reset Grid
+                                        </button>
+                                        <button
+                                            class="btn btn-primary btn-sm px-3 shadow-sm flex-grow-1 flex-md-grow-0">
+                                            <i class="fa-solid fa-cloud-arrow-up me-1"></i> Save All Products
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Grid Table -->
+                                <div class="table-responsive"
+                                    style="max-height: calc(100vh - 280px); overflow-y: auto;">
+                                    <table
+                                        class="table batch-table align-middle mb-0 text-nowrap table-bordered border-light-subtle">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50px;">#</th>
+                                                <th style="min-width: 200px;">Name <span class="text-danger">*</span>
+                                                </th>
+                                                <th style="width: 120px;">Code</th>
+                                                <th style="width: 110px;">Main Unit</th>
+                                                <th style="width: 100px;">Main Rate</th>
+                                                <th style="width: 110px;">Sub Unit <span class="text-danger">*</span>
+                                                </th>
+                                                <th style="width: 90px;">Multiplier</th>
+                                                <th style="width: 100px;">Sub Rate <span class="text-danger">*</span>
+                                                </th>
+                                                <th style="width: 100px;">Min Stock</th>
+                                                <th style="width: 100px;">Opening Stock</th>
+                                                <th style="width: 80px;">Taxable</th>
+                                                <th style="width: 90px;">Tax %</th>
+                                                <th style="width: 50px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="batchProductTable">
+                                            <!-- Rows will be injected by JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Grid Footer -->
+                                <div class="p-3 bg-light bg-opacity-50 border-top text-end"
+                                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                                    <button class="btn btn-sm fw-bold batch-add-row-btn" onclick="addNewRow()">
+                                        <i class="fa-solid fa-plus-circle me-1"></i> Add Manual Row
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="batchRowTemplate">
+        <tr>
+            <td class="fw-bold text-muted bg-light bg-opacity-25 row-sn">1</td>
+            <td><input type="text" class="batch-input" placeholder="Product Name..." name="name"></td>
+            <td><input type="text" class="batch-input" placeholder="PRD-001" name="code"></td>
+            <td>
+                <select class="batch-input" name="main_unit">
+                    <option value="">Select...</option>
+                    <option value="Kg">Kilogram</option>
+                    <option value="L">Liter</option>
+                    <option value="Pcs">Piece</option>
+                    <option value="Box">Box</option>
+                </select>
+            </td>
+            <td><input type="number" class="batch-input text-end" placeholder="0.00" name="main_rate"></td>
+            <td>
+                <select class="batch-input" name="sub_unit">
+                    <option value="">Select...</option>
+                    <option value="g">Gram</option>
+                    <option value="ml">Milliliter</option>
+                </select>
+            </td>
+            <td><input type="number" class="batch-input text-end" placeholder="1" name="multiplier"></td>
+            <td><input type="number" class="batch-input text-end" placeholder="0.00" name="sub_rate"></td>
+            <td><input type="number" class="batch-input text-end" placeholder="0" name="min_stock"></td>
+            <td><input type="number" class="batch-input text-end" placeholder="0" name="opening_stock"></td>
+            <td>
+                <input type="checkbox" class="form-check-input" name="is_taxable" checked>
+            </td>
+            <td><input type="number" class="batch-input text-end last-col" placeholder="13" name="tax_percent"
+                    value="13"></td>
+            <td>
+                <button class="btn btn-link btn-sm text-danger p-0 delete-row-btn" title="Remove">
+                    <i class="fa-solid fa-circle-xmark fs-6"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component Scripts -->
+    <script src="../shared/components/component.js"></script>
+    <!-- Custom Scripts -->
+    <script src="../shared/scripts/script.js"></script>
+    <script src="scripts/add_product_items.js"></script>
+</body>
+
+</html>

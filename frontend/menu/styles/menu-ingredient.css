@@ -1,0 +1,103 @@
+/* Menu Ingredient page styles */
+
+.menu-ingredient-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.menu-ingredient-toolbar-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+.menu-ingredient-setup-btn {
+    min-height: 42px;
+    border-radius: 8px;
+    padding-inline: 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background-color: #1a73e8;
+    color: #ffffff;
+    border: none;
+}
+
+.menu-ingredient-setup-btn:hover {
+    background-color: #1a73e8;
+    color: #ffffff;
+}
+
+.menu-ingredient-controls {
+    min-height: 42px;
+}
+
+.menu-ingredient-controls .form-control,
+.menu-ingredient-controls .form-select {
+    width: auto;
+}
+
+.menu-ingredient-category {
+    width: 260px;
+    min-width: 230px;
+}
+
+.menu-ingredient-search {
+    width: 260px;
+    min-width: 230px;
+}
+
+.menu-ingredient-length {
+    width: 105px;
+}
+
+.menu-ingredient-refresh-btn {
+    min-width: 52px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: 1px solid #d1d9e6;
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+.menu-ingredient-refresh-btn:hover {
+    background-color: #eef2f7;
+    color: #0f172a;
+}
+
+.sn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.menu-ingredient-table th:nth-child(2),
+.menu-ingredient-table td:nth-child(2) {
+    min-width: 260px !important;
+}
+
+.menu-ingredient-table .action-btn {
+    min-width: 110px;
+}
+
+@media (max-width: 768px) {
+    .menu-ingredient-setup-btn,
+    .menu-ingredient-controls,
+    .menu-ingredient-category,
+    .menu-ingredient-search {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .menu-ingredient-length {
+        width: 100px;
+        min-width: 100px;
+    }
+}

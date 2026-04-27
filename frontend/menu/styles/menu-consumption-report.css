@@ -1,0 +1,180 @@
+/* Ingredient Consumption Report styles */
+
+.menu-consumption-report-page {
+    --consumption-heading-blue: #25469b;
+}
+
+.menu-consumption-report-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.consumption-filter-card .form-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 0.38rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.consumption-filter-card .filter-dropdown,
+.consumption-filter-card .filter-search-input {
+    min-height: 42px;
+}
+
+.consumption-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.consumption-length-select {
+    width: 100px;
+    min-width: 100px;
+}
+
+.consumption-icon-btn {
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.consumption-refresh {
+    background-color: #f1f5f9;
+    border: 1px solid #d5dfeb;
+    color: #334155;
+}
+
+.consumption-refresh:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.consumption-print {
+    background: var(--blue-gradient);
+    color: #ffffff;
+}
+
+.consumption-print:hover {
+    background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--primary-blue-dark) 100%);
+    color: #ffffff;
+}
+
+.consumption-pdf {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.consumption-pdf:hover {
+    background: #b91c1c;
+    color: #ffffff;
+}
+
+.consumption-table-box {
+    overflow-x: auto !important;
+}
+
+.consumption-table thead th {
+    background: var(--consumption-heading-blue) !important;
+    color: #ffffff !important;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: none !important;
+}
+
+.consumption-table th:nth-child(2),
+.consumption-table td:nth-child(2) {
+    min-width: 260px !important;
+}
+
+.consumption-table th:nth-child(3),
+.consumption-table td:nth-child(3) {
+    min-width: 240px !important;
+}
+
+.consumption-table th:nth-child(4),
+.consumption-table td:nth-child(4) {
+    min-width: 220px !important;
+}
+
+.consumption-table th:nth-child(5),
+.consumption-table td:nth-child(5) {
+    min-width: 230px !important;
+}
+
+.consumption-table td {
+    font-size: 0.9rem;
+}
+
+.consumption-table .sn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.consumption-table .stock-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.consumption-table .menu-name {
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.consumption-table .qty-badge,
+.consumption-table .multiplier-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.35rem 0.72rem;
+    font-size: 0.79rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.consumption-table .qty-badge {
+    background: var(--light-blue);
+    border-color: #bfdbfe;
+    color: #1e3a8a;
+}
+
+.consumption-table .multiplier-badge {
+    background: #edf4ff;
+    border-color: #dbeafe;
+    color: var(--primary-blue-dark);
+}
+
+.consumption-footnote {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .consumption-actions,
+    .consumption-length-select,
+    .consumption-icon-btn {
+        width: 100%;
+    }
+
+    .consumption-length-select {
+        min-width: 100%;
+    }
+}

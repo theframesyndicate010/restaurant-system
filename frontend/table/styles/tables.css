@@ -1,0 +1,75 @@
+/* Table Management Specific Styles */
+
+/* Create Tables Toolbar Controls */
+.create-tables-toolbar-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+.create-tables-auto-btn {
+    min-height: 42px;
+    border-radius: 8px;
+}
+
+.create-tables-controls {
+    min-height: 42px;
+}
+
+.create-tables-search {
+    min-width: 240px;
+}
+
+.create-tables-length {
+    width: 105px;
+}
+
+.create-tables-refresh-btn {
+    min-width: 52px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: 1px solid #d1d9e6;
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+.create-tables-refresh-btn:hover {
+    background-color: #eef2f7;
+    color: #0f172a;
+}
+
+/* 1. Create Tables Page Column Widths */
+.create-tables-table th:nth-child(2), 
+.create-tables-table td:nth-child(2) {
+    min-width: 120px !important; /* Name */
+}
+
+.create-tables-table th:nth-child(4), 
+.create-tables-table td:nth-child(4) {
+    min-width: 130px !important; /* Table Category */
+}
+
+/* 2. Table Category Page Column Widths */
+.table-category-table th:nth-child(2), 
+.table-category-table td:nth-child(2) {
+    min-width: 150px !important; /* Category Name */
+}
+
+/* 3. Responsive Overrides for Tables Module */
+@media (max-width: 768px) {
+    .create-tables-auto-btn {
+        width: 100%;
+    }
+
+    .create-tables-controls {
+        width: 100%;
+    }
+
+    .create-tables-search {
+        width: calc(100% - 170px);
+        min-width: 170px;
+        flex: 1;
+    }
+
+    .premium-table-box table {
+        min-width: 100% !important;
+    }
+}

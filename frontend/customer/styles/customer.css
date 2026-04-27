@@ -1,0 +1,38 @@
+/* Customer specific CSS */
+
+/* Name Cell */
+.name-cell {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Enhanced Table Aesthetics */
+.table-hover tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8fafc !important;
+}
+
+/* Avatar Placeholder Styles */
+.avatar-placeholder {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(59, 130, 246, 0.25);
+    letter-spacing: 0.5px;
+}
+
+/* Text Hierarchy */
+.subtext-cell {
+    color: #64748b;
+    font-size: 0.9rem;
+}

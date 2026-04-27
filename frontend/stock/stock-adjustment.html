@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Adjustment - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="../shared/styles/base/floaty.css">
+    <link rel="stylesheet" href="styles/stock-adjustment.css">
+</head>
+
+<body>
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card content-card stock-adjustment-card">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="d-flex align-items-center mb-4 border-bottom pb-4 stock-adjustment-header">
+                                    <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded text-primary me-3 stock-adjustment-icon">
+                                        <i class="fa-solid fa-sliders fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold text-dark mb-1 stock-adjustment-title">Stock Adjustment</h5>
+                                        <p class="text-muted small mb-0">Create stock correction entries for selected items.</p>
+                                    </div>
+                                </div>
+
+                                <form id="stockAdjustmentForm" class="stock-adjustment-form">
+                                    <div id="stockAdjustmentMessage" class="alert d-none mb-4" role="alert"></div>
+
+                                    <div class="stock-section-title">Stock Selection</div>
+                                    <div class="row g-4 pt-2 mb-2">
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid" id="adjustCategory" required>
+                                                    <option value="" selected disabled>-- Select Category --</option>
+                                                    <option value="beverages">Beverages</option>
+                                                    <option value="supplies">Supplies</option>
+                                                    <option value="main course">Main Course</option>
+                                                    <option value="bakery">Bakery</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-layer-group me-1 text-primary"></i> Category
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid" id="adjustProduct" required>
+                                                    <option value="" selected disabled>-- Select Stock Item --</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-box me-1 text-primary"></i> Product <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="floaty-input">
+                                                <input type="number" class="form-control form-control-solid" id="currentStock" placeholder=" " value="0"
+                                                    readonly>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-cubes-stacked me-1 text-primary"></i> Current Stock
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stock-section-title">Adjustment</div>
+                                    <div class="row g-4 pt-2">
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid" id="adjustType" required>
+                                                    <option value="" selected disabled>-- Select Type --</option>
+                                                    <option value="increase">Increase</option>
+                                                    <option value="decrease">Decrease</option>
+                                                    <option value="damage">Damage</option>
+                                                    <option value="expired">Expired</option>
+                                                    <option value="correction">System Correction</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-rotate me-1 text-primary"></i> Adjustment Type <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid" id="adjustUnit" required>
+                                                    <option value="" selected disabled>-- Select Unit --</option>
+                                                    <option value="Bottle">Bottle</option>
+                                                    <option value="Piece">Piece</option>
+                                                    <option value="Kg">Kg</option>
+                                                    <option value="Liter">Liter</option>
+                                                    <option value="Milliliter">Milliliter</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-ruler-combined me-1 text-primary"></i> Unit <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="floaty-input">
+                                                <input type="number" class="form-control form-control-solid" id="adjustQty" placeholder=" " min="0.01"
+                                                    step="0.01" required>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-hashtag me-1 text-primary"></i> Quantity <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="floaty-input">
+                                                <textarea class="form-control form-control-solid" id="adjustRemarks" placeholder="Reason for adjustment..."
+                                                    rows="3" required></textarea>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-comment-dots me-1 text-primary"></i> Remarks <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert mt-4 mb-0 stock-note-alert">
+                                        <i class="fa-solid fa-circle-info me-2"></i>
+                                        <strong class="fw-bold">Note:</strong><br>
+                                        Fields marked <span class="text-danger">*</span> are mandatory.<br>
+                                        Always verify stock before adjustment.
+                                    </div>
+
+                                    <div class="d-flex justify-content-end gap-3 mt-4 pt-4 border-top stock-action-row">
+                                        <button type="reset" class="btn px-4 bg-white text-dark border d-flex align-items-center gap-2 stock-btn-muted">
+                                            <i class="fa-solid fa-rotate-right"></i> Reset
+                                        </button>
+                                        <button type="submit" class="btn px-4 d-flex align-items-center gap-2 text-white stock-btn-primary">
+                                            <i class="fa-solid fa-paper-plane"></i> Save Adjustment
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+    <script src="scripts/stock-adjustment.js"></script>
+</body>
+
+</html>

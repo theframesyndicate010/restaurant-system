@@ -1,0 +1,77 @@
+/* Stock Movement specific styles */
+
+/* Hide built-in DataTables top controls because this page uses custom controls */
+.stock-movement-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.stock-filter-card .form-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stock-filter-card .filter-dropdown,
+.stock-filter-card .filter-search-input {
+    height: 42px;
+}
+
+.stock-refresh-btn {
+    width: 100%;
+    min-height: 42px;
+}
+
+.sn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.premium-table-box th:nth-child(2),
+.premium-table-box td:nth-child(2) {
+    min-width: 120px !important;
+}
+
+.premium-table-box th:nth-child(3),
+.premium-table-box td:nth-child(3) {
+    min-width: 130px !important;
+}
+
+.premium-table-box th:nth-child(4),
+.premium-table-box td:nth-child(4) {
+    min-width: 180px !important;
+}
+
+.premium-table-box th:nth-child(5),
+.premium-table-box td:nth-child(5) {
+    min-width: 260px !important;
+}
+
+@media (max-width: 991px) {
+    .stock-refresh-btn {
+        margin-top: 0.15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stock-movement-page .content-card .dt-bottom-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stock-movement-page .content-card .dt-bottom-bar .dataTables_info,
+    .stock-movement-page .content-card .dt-bottom-bar .dataTables_paginate {
+        padding-inline: 0.75rem;
+    }
+}

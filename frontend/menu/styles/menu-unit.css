@@ -1,0 +1,92 @@
+/* Menu Unit page specific styles */
+
+.menu-unit-page .content-card .dt-top-bar {
+    display: none;
+}
+
+.menu-unit-toolbar-card .card-body {
+    padding: 1rem 1.5rem !important;
+}
+
+.menu-unit-add-btn {
+    min-height: 42px;
+    border-radius: 8px;
+    padding-inline: 1.1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background-color: var(--accent-blue) !important;
+    color: #ffffff !important;
+}
+
+.menu-unit-add-btn:hover {
+    background-color: #1557b0 !important;
+    color: #ffffff !important;
+}
+
+.menu-unit-controls {
+    min-height: 42px;
+}
+
+.menu-unit-search {
+    min-width: 240px;
+}
+
+.menu-unit-length {
+    width: 105px;
+}
+
+.menu-unit-refresh-btn {
+    min-width: 52px;
+    min-height: 42px;
+    border-radius: 8px;
+    border: 1px solid #d1d9e6;
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+.menu-unit-refresh-btn:hover {
+    background-color: #eef2f7;
+    color: #0f172a;
+}
+
+.sn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.menu-unit-table th:nth-child(2),
+.menu-unit-table td:nth-child(2) {
+    min-width: 200px !important;
+}
+
+.menu-unit-table .action-btn {
+    min-width: 32px;
+}
+
+@media (max-width: 768px) {
+    .menu-unit-add-btn {
+        width: 100%;
+    }
+
+    .menu-unit-controls {
+        width: 100%;
+    }
+
+    .menu-unit-search {
+        width: calc(100% - 170px);
+        min-width: 170px;
+        flex: 1;
+    }
+}

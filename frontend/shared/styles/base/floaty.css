@@ -1,0 +1,92 @@
+/* ================================================
+   FLOATY INPUT (Material Style)
+   ================================================ */
+.floaty-input {
+    position: relative;
+    margin-bottom: 0;
+    /* Let parent handle spacing */
+}
+
+.floaty-input .form-control {
+    border: 1px solid #e2e8f0;
+    border-radius: 11px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    transition: border-color 0.2s ease;
+}
+
+.floaty-input .form-control::placeholder {
+    color: #94a3b8;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.floaty-input .form-control:focus::placeholder {
+    opacity: 1;
+}
+
+.floaty-input textarea.form-control {
+    padding-top: 1rem;
+}
+
+.floaty-input .form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: none;
+}
+
+.floaty-input label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 4px;
+}
+
+.floaty-input textarea~label {
+    top: 1.5rem;
+}
+
+.floaty-input .form-control:focus~label,
+.floaty-input input.form-control:not(:placeholder-shown)~label,
+.floaty-input textarea.form-control:not(:placeholder-shown)~label {
+    top: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    background-color: #ffffff;
+}
+
+.floaty-input select.form-control {
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+}
+
+.floaty-input select.form-control:required:invalid {
+    color: transparent;
+}
+
+.floaty-input select.form-control:focus,
+.floaty-input select.form-control:required:valid {
+    color: var(--text-dark);
+}
+
+.floaty-input select.form-control option {
+    color: var(--text-dark);
+}
+
+.floaty-input select.form-control:focus~label,
+.floaty-input select.form-control:required:valid~label {
+    top: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    background-color: #ffffff;
+}

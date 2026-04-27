@@ -1,0 +1,146 @@
+/* Add office expense page styles */
+
+.add-expense-page .add-expense-card {
+    border: 1px solid #e6edf5;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px -24px rgba(15, 23, 42, 0.45);
+    overflow: hidden;
+}
+
+.add-expense-page .add-expense-head {
+    border-color: #edf2f7 !important;
+}
+
+.add-expense-page .add-expense-head-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(26, 115, 232, 0.1);
+    color: var(--accent-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.9rem;
+    font-size: 1.05rem;
+}
+
+.add-expense-page .add-expense-back-btn {
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.52rem 1.02rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.add-expense-page .add-expense-back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.72);
+    color: #ffffff;
+}
+
+.add-expense-page .form-control-solid {
+    min-height: 47px;
+    border: 1px solid #d7e0ea !important;
+    background-color: #f9fbfd !important;
+}
+
+.add-expense-page textarea.form-control-solid {
+    min-height: 120px;
+}
+
+.add-expense-page .floaty-input .form-control:focus,
+.add-expense-page .add-expense-select:focus {
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.11);
+}
+
+.add-expense-section-label {
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.add-expense-type-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.add-expense-type-option {
+    border: 1px solid #dbe4ef;
+    background: #f8fbff;
+    border-radius: 10px;
+    min-height: 47px;
+    padding: 0.6rem 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.add-expense-type-option input {
+    margin: 0;
+}
+
+.add-expense-type-option:has(input:checked) {
+    border-color: var(--accent-blue);
+    background: #eef5ff;
+    color: #0f172a;
+}
+
+.add-expense-select {
+    border-radius: 10px;
+}
+
+.add-expense-remarks-hint {
+    color: #64748b;
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+}
+
+.add-expense-page .add-expense-note {
+    background-color: #fff8f1;
+    border: 1px solid #ffe7cb;
+    color: #b45309;
+    border-radius: 8px;
+    font-size: 0.86rem;
+}
+
+.add-expense-page .add-expense-actions {
+    border-color: #edf2f7 !important;
+}
+
+.add-expense-page .add-expense-save-btn {
+    background: var(--blue-gradient);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.add-expense-page .add-expense-save-btn:hover,
+.add-expense-page .add-expense-save-btn:focus {
+    background: linear-gradient(135deg, #173886 0%, #1e5fd4 100%);
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .add-expense-page .add-expense-actions {
+        flex-wrap: wrap;
+    }
+
+    .add-expense-page .add-expense-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .add-expense-type-group {
+        grid-template-columns: 1fr;
+    }
+}

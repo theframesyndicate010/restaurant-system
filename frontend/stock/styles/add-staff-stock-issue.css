@@ -1,0 +1,35 @@
+/* New Staff Stock Issue form styles */
+
+.issue-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 0.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.issue-input {
+    height: 46px;
+    border: 1.5px solid #d1d9e6;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #0f172a;
+    background-color: #ffffff;
+}
+
+.issue-input:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+}
+
+.issue-input[readonly] {
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+#issueFormMessage {
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}

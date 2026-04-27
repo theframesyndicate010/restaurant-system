@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Stock Issue - Smart Cafeteria</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="../table/styles/datatable.css">
+    <link rel="stylesheet" href="styles/staff-stock-issue.css">
+</head>
+
+<body class="staff-stock-issue-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!-- Sidebar Component -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <!-- Top Header Component -->
+            <app-header></app-header>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <!-- Page Header Card -->
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column gap-1">
+                        <h4 class="page-header-title">Staff Stock Issue</h4>
+                        <p class="page-header-subtitle">Manage issued stock to staff members and monitor returns.</p>
+                    </div>
+                </div>
+
+                <!-- Filter & Manage Card -->
+                <div class="card filter-toolbar-card staff-filter-card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3 mb-3">
+                            <h5 class="filter-manage-title mb-0">Filter &amp; Manage</h5>
+                            <div class="d-flex flex-wrap gap-2 staff-actions">
+                                <a href="./add-staff-stock-issue.html" id="openNewIssuePage"
+                                    class="btn text-decoration-none d-inline-flex align-items-center gap-2 shadow-sm staff-action-btn staff-new-issue-btn">
+                                    <i class="fa-solid fa-plus"></i> New Issue
+                                </a>
+                                <button type="button" id="viewStaffIssueReport"
+                                    class="btn d-inline-flex align-items-center gap-2 shadow-sm staff-action-btn staff-report-btn">
+                                    <i class="fa-solid fa-chart-column"></i> View Report
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 align-items-end">
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label class="form-label">Staff</label>
+                                <select class="form-select filter-dropdown" id="staffFilter">
+                                    <option value="">-- All Staff --</option>
+                                    <option value="Ramesh Thapa">Ramesh Thapa</option>
+                                    <option value="Sita Rai">Sita Rai</option>
+                                    <option value="Prakash KC">Prakash KC</option>
+                                    <option value="Maya Shrestha">Maya Shrestha</option>
+                                    <option value="Ram Bista">Ram Bista</option>
+                                    <option value="Nisha Gurung">Nisha Gurung</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label class="form-label">Issuer</label>
+                                <select class="form-select filter-dropdown" id="issuerFilter">
+                                    <option value="">-- All Staff --</option>
+                                    <option value="Store Manager">Store Manager</option>
+                                    <option value="Kitchen Supervisor">Kitchen Supervisor</option>
+                                    <option value="Admin Officer">Admin Officer</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label class="form-label">From Date</label>
+                                <input type="date" class="form-control filter-search-input" id="staffFromDate"
+                                    value="2026-03-13">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label class="form-label">To Date</label>
+                                <input type="date" class="form-control filter-search-input" id="staffToDate"
+                                    value="2026-04-12">
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-3">
+                                <button type="button" class="btn staff-filter-btn w-100" id="applyStaffFilters">
+                                    <i class="fa-solid fa-magnifying-glass"></i> Filter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Card -->
+                <div class="card content-card">
+                    <div class="card-body">
+                        <div class="table-responsive premium-table-box">
+                            <table class="table align-middle mb-0 text-nowrap table-hover datatable-init staff-stock-issue-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date Issued</th>
+                                        <th>Staff</th>
+                                        <th>Item</th>
+                                        <th>Issued Qty</th>
+                                        <th>Added Qty</th>
+                                        <th>Returned Qty</th>
+                                        <th>Status</th>
+                                        <th style="width: 120px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-issuer="Store Manager">
+                                        <td class="fw-medium text-dark">2026-04-11</td>
+                                        <td>Ramesh Thapa</td>
+                                        <td class="fw-medium text-dark">Fresh Milk (1L)</td>
+                                        <td>24</td>
+                                        <td class="fw-semibold text-success">4</td>
+                                        <td class="fw-semibold text-danger">2</td>
+                                        <td><span class="status-pill status-partial">Partially Returned</span></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-success shadow-sm action-btn" title="View"><i
+                                                        class="fa-solid fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary shadow-sm action-btn" title="Edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger shadow-sm action-btn" title="Delete"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-issuer="Kitchen Supervisor">
+                                        <td class="fw-medium text-dark">2026-04-10</td>
+                                        <td>Sita Rai</td>
+                                        <td class="fw-medium text-dark">Refined Sugar (1Kg)</td>
+                                        <td>10</td>
+                                        <td class="fw-semibold text-success">0</td>
+                                        <td class="fw-semibold text-danger">0</td>
+                                        <td><span class="status-pill status-issued">Issued</span></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-success shadow-sm action-btn" title="View"><i
+                                                        class="fa-solid fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary shadow-sm action-btn" title="Edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger shadow-sm action-btn" title="Delete"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-issuer="Store Manager">
+                                        <td class="fw-medium text-dark">2026-04-09</td>
+                                        <td>Prakash KC</td>
+                                        <td class="fw-medium text-dark">Tea Dust (500g)</td>
+                                        <td>8</td>
+                                        <td class="fw-semibold text-success">2</td>
+                                        <td class="fw-semibold text-danger">0</td>
+                                        <td><span class="status-pill status-added">Added</span></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-success shadow-sm action-btn" title="View"><i
+                                                        class="fa-solid fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary shadow-sm action-btn" title="Edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger shadow-sm action-btn" title="Delete"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-issuer="Admin Officer">
+                                        <td class="fw-medium text-dark">2026-04-08</td>
+                                        <td>Maya Shrestha</td>
+                                        <td class="fw-medium text-dark">Paper Cups (100pcs)</td>
+                                        <td>12</td>
+                                        <td class="fw-semibold text-success">0</td>
+                                        <td class="fw-semibold text-danger">5</td>
+                                        <td><span class="status-pill status-returned">Returned</span></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-success shadow-sm action-btn" title="View"><i
+                                                        class="fa-solid fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary shadow-sm action-btn" title="Edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger shadow-sm action-btn" title="Delete"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-issuer="Kitchen Supervisor">
+                                        <td class="fw-medium text-dark">2026-04-06</td>
+                                        <td>Ram Bista</td>
+                                        <td class="fw-medium text-dark">Napkin Pack</td>
+                                        <td>20</td>
+                                        <td class="fw-semibold text-success">3</td>
+                                        <td class="fw-semibold text-danger">1</td>
+                                        <td><span class="status-pill status-partial">Partially Returned</span></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-success shadow-sm action-btn" title="View"><i
+                                                        class="fa-solid fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary shadow-sm action-btn" title="Edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger shadow-sm action-btn" title="Delete"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-issuer="Store Manager">
+                                        <td class="fw-medium text-dark">2026-03-29</td>
+                                        <td>Nisha Gurung</td>
+                                        <td class="fw-medium text-dark">Disposable Gloves (Box)</td>
+                                        <td>6</td>
+                                        <td class="fw-semibold text-success">1</td>
+                                        <td class="fw-semibold text-danger">0</td>
+                                        <td><span class="status-pill status-added">Added</span></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-success shadow-sm action-btn" title="View"><i
+                                                        class="fa-solid fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary shadow-sm action-btn" title="Edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger shadow-sm action-btn" title="Delete"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <template id="staffIssueReportPageTemplate">
+                            <html>
+                            <head>
+                                <title data-report-title></title>
+                                <style>
+                                    body { font-family: Arial, sans-serif; margin: 22px; color: #1f2937; }
+                                    h2 { margin: 0 0 8px 0; color: #0f172a; }
+                                    p { margin: 3px 0; color: #334155; font-size: 13px; }
+                                    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+                                    th, td { border: 1px solid #d1d5db; padding: 8px 10px; font-size: 12px; }
+                                    th { background: #f1f5f9; text-align: left; }
+                                    tr:nth-child(even) { background: #f8fafc; }
+                                </style>
+                            </head>
+                            <body>
+                                <h2 data-report-heading></h2>
+                                <p><strong>Staff:</strong> <span data-report-staff></span></p>
+                                <p><strong>Issuer:</strong> <span data-report-issuer></span></p>
+                                <p><strong>From Date:</strong> <span data-report-from-date></span></p>
+                                <p><strong>To Date:</strong> <span data-report-to-date></span></p>
+                                <p><strong>Generated On:</strong> <span data-report-generated-on></span></p>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date Issued</th>
+                                            <th>Staff</th>
+                                            <th>Item</th>
+                                            <th>Issued Qty</th>
+                                            <th>Added Qty</th>
+                                            <th>Returned Qty</th>
+                                            <th>Status</th>
+                                            <th>Issuer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-report-body></tbody>
+                                </table>
+                            </body>
+                            </html>
+                        </template>
+
+                        <template id="staffIssueReportRowTemplate">
+                            <tr>
+                                <td data-col-sn></td>
+                                <td data-col-date-issued></td>
+                                <td data-col-staff></td>
+                                <td data-col-item></td>
+                                <td data-col-issued-qty></td>
+                                <td data-col-added-qty></td>
+                                <td data-col-returned-qty></td>
+                                <td data-col-status></td>
+                                <td data-col-issuer></td>
+                            </tr>
+                        </template>
+
+                        <template id="staffIssueReportEmptyRowTemplate">
+                            <tr>
+                                <td colspan="9" style="text-align:center;padding:14px;">No records found for selected filters.</td>
+                            </tr>
+                        </template>
+
+                        <app-datatable></app-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (required by DataTables) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- DataTables JS + Extensions -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component Scripts -->
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/components/data_table.js"></script>
+    <!-- Custom Scripts -->
+    <script src="scripts/staff-stock-issue.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

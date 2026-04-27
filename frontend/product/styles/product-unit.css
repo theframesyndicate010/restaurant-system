@@ -1,0 +1,12 @@
+/* Product Unit Specific Styles */
+
+/* 1. Table Column specific widths */
+.premium-table-box th:nth-child(3), 
+.premium-table-box td:nth-child(3) {
+    min-width: 180px !important; /* Unit Name */
+}
+
+.premium-table-box th:nth-child(4), 
+.premium-table-box td:nth-child(4) {
+    min-width: 100px !important; /* Short Name */
+}

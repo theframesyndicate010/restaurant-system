@@ -1,0 +1,53 @@
+/* Customer Summary Report Specific Styles */
+
+/* 1. Filter Toolbar Specifics */
+.filter-dropdown {
+    height: 42px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #e2e8f0;
+}
+
+.filter-search-input {
+    height: 42px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* 2. Table Column widths */
+.premium-table-box th:nth-child(2), 
+.premium-table-box td:nth-child(2) {
+    min-width: 180px !important; /* Customer Name */
+}
+
+.premium-table-box th:nth-child(3), 
+.premium-table-box td:nth-child(3) {
+    min-width: 110px !important; /* Contact */
+}
+
+/* 3. SN Badge (Specific to this report) */
+.sn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+/* 4. Footer Styling */
+.table tfoot td {
+    background-color: #f8fafc !important;
+    border-top: 2px solid #e2e8f0 !important;
+}
+
+@media (max-width: 768px) {
+    .premium-table-box table.dataTable {
+        min-width: 100%;
+    }
+}

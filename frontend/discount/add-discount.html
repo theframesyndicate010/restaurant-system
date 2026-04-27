@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bill Discount - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="../shared/styles/base/floaty.css">
+</head>
+
+<body>
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="row">
+                    <div class="">
+                        <div class="card content-card"
+                            style="border: 1px solid #f1f5f9; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); background-color: #ffffff;">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="d-flex align-items-center mb-4 border-bottom pb-4"
+                                    style="border-color: #f1f5f9 !important;">
+                                    <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded text-primary me-3"
+                                        style="width: 48px; height: 48px;">
+                                        <i class="fa-solid fa-percent fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold text-dark mb-1" style="font-size: 1.15rem;">Add Bill Discount</h5>
+                                        <p class="text-muted small mb-0">Create bill discount slabs and values</p>
+                                    </div>
+                                </div>
+
+                                <form>
+                                    <div class="row g-4 pt-2">
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <input type="number" class="form-control form-control-solid" placeholder=" " min="0" step="0.01" required>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-arrow-down-wide-short me-1 text-primary"></i> Min Amount <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <input type="number" class="form-control form-control-solid" placeholder=" " min="0" step="0.01" required>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-arrow-up-wide-short me-1 text-primary"></i> Max Amount <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <select class="form-control form-control-solid" required>
+                                                    <option value="" selected disabled>Select Discount Type</option>
+                                                    <option>Percentage (%)</option>
+                                                    <option>Flat Amount (Rs.)</option>
+                                                </select>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-shapes me-1 text-primary"></i> Discount Type <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="floaty-input">
+                                                <input type="number" class="form-control form-control-solid" placeholder=" " min="0" step="0.01" required>
+                                                <label class="text-dark">
+                                                    <i class="fa-solid fa-sack-dollar me-1 text-primary"></i> Discount (In amount or percent) <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert mt-4 mb-0"
+                                        style="background-color: #fff8f1; border: 1px solid #ffe8cc; color: #d97706; border-radius: 8px; font-size: 0.85rem;">
+                                        <i class="fa-solid fa-circle-info me-2"></i> <strong class="fw-bold">Note</strong> * Fields are mandatory
+                                    </div>
+
+                                    <div class="d-flex justify-content-end gap-3 mt-4 pt-4 border-top"
+                                        style="border-color: #f1f5f9 !important;">
+                                        <a href="discount-setup.html"
+                                            class="btn px-4 bg-white text-dark border d-flex align-items-center gap-2 text-decoration-none"
+                                            style="border-color: #e2e8f0 !important; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
+                                            <i class="fa-solid fa-arrow-left"></i> Back
+                                        </a>
+                                        <button type="reset"
+                                            class="btn px-4 bg-white text-dark border d-flex align-items-center gap-2"
+                                            style="border-color: #e2e8f0 !important; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
+                                            <i class="fa-solid fa-rotate-right"></i> Reset
+                                        </button>
+                                        <button type="submit" class="btn px-4 d-flex align-items-center gap-2 text-white"
+                                            style="background-color: #1a56db; border-radius: 6px; font-weight: 600; font-size: 0.85rem; border: none;">
+                                            <i class="fa-solid fa-paper-plane"></i> Save Discount
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>
+

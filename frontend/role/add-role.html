@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Role - Smart Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css">
+    <link rel="stylesheet" href="../shared/styles/base/floaty.css">
+    <link rel="stylesheet" href="styles/add-role.css">
+</head>
+
+<body class="add-role-page">
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <app-sidebar></app-sidebar>
+
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <app-header></app-header>
+
+            <div class="container-fluid p-3 p-md-4 overflow-auto">
+                <div class="card page-header-card">
+                    <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                        <div>
+                            <h4 class="page-header-title">Add New Role</h4>
+                            <p class="page-header-subtitle">Create role profile, status, and module permissions for staff access control.</p>
+                        </div>
+                        <a href="roles.html" class="btn btn-outline-light add-role-back-btn text-decoration-none d-inline-flex align-items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Back to Roles
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card content-card add-role-card">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="add-role-head d-flex align-items-center border-bottom pb-4 mb-4">
+                            <div class="add-role-head-icon">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-dark mb-1">New Role</h5>
+                                <p class="text-muted small mb-0">Fill required fields and assign permissions to continue.</p>
+                            </div>
+                        </div>
+
+                        <div id="addRoleAlert" class="alert d-none mb-4" role="alert"></div>
+
+                        <form id="addRoleForm" novalidate>
+                            <div class="row g-4 pt-1">
+                                <div class="col-12 col-lg-6">
+                                    <div class="floaty-input">
+                                        <input id="roleName" type="text" class="form-control form-control-solid" placeholder=" " required>
+                                        <label class="text-dark">
+                                            <i class="fa-solid fa-id-badge me-1 text-primary"></i> Role Name <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 add-role-status-col">
+                                    <div class="add-role-status-inline">
+                                        <label class="add-role-section-label mb-0">
+                                            <i class="fa-solid fa-toggle-on me-1 text-primary"></i> Status <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="role-status-group">
+                                            <label class="role-status-option">
+                                                <input type="radio" name="roleStatus" value="enabled" checked>
+                                                <span>Active</span>
+                                            </label>
+                                            <label class="role-status-option">
+                                                <input type="radio" name="roleStatus" value="disabled">
+                                                <span>Inactive</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="add-role-section-label d-block mb-2">
+                                        <i class="fa-solid fa-key me-1 text-primary"></i> Permissions <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="permission-list" id="permissionList">
+                                        <div class="permission-item" data-module="customer">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleCustomer" value="customer">
+                                                    <span class="permission-module-title">Customer</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelCustomer" aria-expanded="false" aria-controls="panelCustomer">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelCustomer">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="customer" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="customer" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="customer" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="customer" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="table">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleTable" value="table">
+                                                    <span class="permission-module-title">Table</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelTable" aria-expanded="false" aria-controls="panelTable">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelTable">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="table" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="table" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="table" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="table" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="inventory-management">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleInventory" value="inventory-management">
+                                                    <span class="permission-module-title">Inventory Management</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelInventory" aria-expanded="false" aria-controls="panelInventory">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelInventory">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="inventory-management" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="inventory-management" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="inventory-management" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="inventory-management" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="billing">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleBilling" value="billing">
+                                                    <span class="permission-module-title">Billing</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelBilling" aria-expanded="false" aria-controls="panelBilling">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelBilling">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="billing" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="billing" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="billing" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="billing" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="menu">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleMenu" value="menu">
+                                                    <span class="permission-module-title">Menu</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelMenu" aria-expanded="false" aria-controls="panelMenu">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelMenu">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="menu" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="menu" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="menu" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="menu" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="purchase">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="modulePurchase" value="purchase">
+                                                    <span class="permission-module-title">Purchase</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelPurchase" aria-expanded="false" aria-controls="panelPurchase">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelPurchase">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="purchase" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="purchase" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="purchase" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="purchase" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="suppliers">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleSuppliers" value="suppliers">
+                                                    <span class="permission-module-title">Suppliers</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelSuppliers" aria-expanded="false" aria-controls="panelSuppliers">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelSuppliers">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="suppliers" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="suppliers" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="suppliers" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="suppliers" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="staff-management">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleStaffManagement" value="staff-management">
+                                                    <span class="permission-module-title">Staff Management</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelStaffManagement" aria-expanded="false" aria-controls="panelStaffManagement">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelStaffManagement">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="staff-management" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="staff-management" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="staff-management" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="staff-management" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="reports">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleReports" value="reports">
+                                                    <span class="permission-module-title">Reports</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelReports" aria-expanded="false" aria-controls="panelReports">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelReports">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="reports" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="reports" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="reports" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="reports" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="permission-item" data-module="office-expenses">
+                                            <div class="permission-item-head">
+                                                <label class="form-check permission-module-label mb-0">
+                                                    <input class="form-check-input permission-module-check" type="checkbox" id="moduleOfficeExpenses" value="office-expenses">
+                                                    <span class="permission-module-title">Office Expenses</span>
+                                                </label>
+                                                <button type="button" class="permission-toggle-btn" data-target="panelOfficeExpenses" aria-expanded="false" aria-controls="panelOfficeExpenses">
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="permission-subpanel" id="panelOfficeExpenses">
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="office-expenses" value="view">View</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="office-expenses" value="create">Add</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="office-expenses" value="edit">Edit</label>
+                                                <label class="form-check permission-action"><input class="form-check-input permission-action-check" type="checkbox" data-module="office-expenses" value="delete">Delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert add-role-note mt-4 mb-0">
+                                <i class="fa-solid fa-circle-info me-2"></i>
+                                <strong>Note:</strong> * Fields are mandatory.
+                            </div>
+
+                            <div class="d-flex justify-content-end gap-3 mt-4 pt-4 border-top add-role-actions">
+                                <a href="roles.html" class="btn btn-outline-secondary px-4 d-inline-flex align-items-center gap-2 text-decoration-none">
+                                    <i class="fa-solid fa-arrow-left"></i> Back
+                                </a>
+                                <button type="reset" id="addRoleResetBtn" class="btn btn-outline-secondary px-4 d-inline-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-rotate-right"></i> Reset
+                                </button>
+                                <button type="submit" class="btn add-role-save-btn px-4 d-inline-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-floppy-disk"></i> Save Role
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/components/component.js"></script>
+    <script src="scripts/add_role.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+</body>
+
+</html>

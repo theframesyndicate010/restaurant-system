@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing - Smart Cafeteria</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../shared/styles/layout/sidebar.css">
+    <link rel="stylesheet" href="../shared/styles/layout/header.css">
+    <link rel="stylesheet" href="../shared/styles/base/style.css"> 
+    <link rel="stylesheet" href="styles/billing.css">
+</head>
+<body>
+    <div class="d-flex wrapper vh-100 overflow-hidden">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!-- Sidebar Component -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1 bg-light-gray d-flex flex-column h-100 overflow-hidden">
+            <!-- Top Header Component -->
+            <app-header></app-header>
+            
+            <!-- Billing Dashboard Content -->
+            <div class="billing-container flex-grow-1 p-2 p-md-3 p-lg-4 d-flex flex-column flex-lg-row gap-3">
+                
+                <!-- Left Panel - Menu Grid -->
+                <div class="menu-panel  w-100 h-100" style="flex: 5;">
+                    <div class="menu-header d-flex flex-column gap-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="fw-bold mb-0 text-dark">Select Item</h4>
+                            <a href="/frontend/dashboard/index.html" class="btn btn-primary d-flex align-items-center gap-2" style="border-radius: 8px;">
+                                <i class="fa-solid fa-arrow-left"></i> Dashboard
+                            </a>
+                        </div>
+                        <div class="d-flex flex-column flex-md-row gap-3">
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-search"></i>
+                                <input type="text" class="form-control search-input" placeholder="Search by menu item code...">
+                            </div>
+                            <select class="form-select w-auto" style="border-radius: 10px; border: 1px solid #e2e8f0; background-color: #f8fafc; min-width: 150px;">
+                                <option value="all">All Categories</option>
+                                <option value="drinks">Drinks</option>
+                                <option value="momo">Momo</option>
+                                <option value="snacks">Snacks</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-items-scroll">
+                        <h6 class="fw-bold text-secondary mb-3">Menu Items</h6>
+                        <div class="row g-3" id="menu-items-grid">
+                            <!-- Item 1 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Strathclyde 1990 35Y 30ml" data-price="2000">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Strathclyde 1990 35Y 30ml</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 2000</div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Pork chilly momo" data-price="250">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Pork chilly momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 250</div>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Khukuri cig" data-price="20">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Khukuri cig</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 20</div>
+                                </div>
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Strathclyde 1990 35Y 90ml" data-price="5800">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Strathclyde 1990 35Y 90ml</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 5800</div>
+                                </div>
+                            </div>
+                            <!-- Item 5 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Singleton 25Y 30ml" data-price="2500">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Singleton 25Y 30ml</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 2500</div>
+                                </div>
+                            </div>
+                            <!-- Item 6 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Chicken fry momo" data-price="170">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Chicken fry momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 170</div>
+                                </div>
+                            </div>
+                            <!-- Item 7 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Buff Momo" data-price="179">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Buff Momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 179</div>
+                                </div>
+                            </div>
+                            <!-- Item 8 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Veg fry momo" data-price="100">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Veg fry momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 100</div>
+                                </div>
+                            </div>
+                            <!-- Item 9 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Spag. Carbonara" data-price="300">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Spag. Carbonara</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 300</div>
+                                </div>
+                            </div>
+                            <!-- Item 10 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Mutton chilly momo" data-price="280">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Mutton chilly momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 280</div>
+                                </div>
+                            </div>
+                            <!-- Item 11 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Veg Momo" data-price="80">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Veg Momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 80</div>
+                                </div>
+                            </div>
+                            <!-- Item 12 -->
+                            <div class="col-6 col-md-4 col-xl-3">
+                                <div class="menu-item-card position-relative overflow-hidden" data-name="Chicken chilly momo" data-price="200">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(255,255,255,0) 100%); pointer-events:none;"></div>
+                                    <div class="menu-item-title z-1">Chicken chilly momo</div>
+                                    <div class="menu-item-price z-1 text-primary">Rs. 200</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - Order Summary -->
+                <div class="order-panel h-100" style="flex: 5; min-width: 300px;">
+                    <div class="order-header d-flex flex-column gap-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-2">
+                                <h4 class="fw-bold mb-0 text-dark">Table:</h4>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle table-badge-btn" type="button" id="tableSelectDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select Table
+                                    </button>
+                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="tableSelectDropdown">
+                                        <li><a class="dropdown-item fw-bold" href="#"><i class="fa-solid fa-border-all me-2 text-warning"></i>Table 1</a></li>
+                                        <li><a class="dropdown-item fw-bold" href="#"><i class="fa-solid fa-border-all me-2 text-warning"></i>Table 2</a></li>
+                                        <li><a class="dropdown-item fw-bold" href="#"><i class="fa-solid fa-border-all me-2 text-warning"></i>Table 3</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-primary fw-bold" href="#"><i class="fa-solid fa-truck-fast me-2"></i>Takeaway</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary fw-bold shadow-sm d-none d-md-block" style="border-radius: 8px;"><i class="fa-solid fa-bell me-2"></i>Place Order</button>
+                        </div>
+                        <div class="d-none d-md-flex gap-2">
+                            <button class="btn text-dark btn-header-action flex-grow-1" style="background-color: #f1f5f9; border: 1px solid #e2e8f0; font-weight: 600;"><i class="fa-regular fa-comment-dots me-2 text-secondary"></i>Add Remarks</button>
+                            <button class="btn text-dark btn-header-action flex-grow-1" style="background-color: #f1f5f9; border: 1px solid #e2e8f0; font-weight: 600;"><i class="fa-solid fa-arrow-right-arrow-left me-2 text-secondary"></i>Transfer Order</button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-list-scroll premium-table-box rounded-0 border-start-0 border-end-0 border-top-0 mb-0">
+                        <table class="order-table table mb-0 align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Rate</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-items-tbody">
+                                <!-- Order items will be dynamically added here -->
+                            </tbody>
+                        </table>
+
+                        <!-- Template for dynamically generated order rows -->
+                        <template id="order-row-template">
+                            <tr>
+                                <td>
+                                    <div class="fw-bold text-dark order-item-name"></div>
+                                </td>
+                                <td class="order-item-rate"></td>
+                                <td align="center">
+                                    <div class="qty-control mx-auto">
+                                        <button class="qty-btn decrease-qty"><i class="fa-solid fa-minus" style="font-size: 10px;"></i></button>
+                                        <span class="qty-value"></span>
+                                        <button class="qty-btn increase-qty"><i class="fa-solid fa-plus" style="font-size: 10px;"></i></button>
+                                    </div>
+                                </td>
+                                <td class="fw-bold order-item-amount"></td>
+                                <td align="center">
+                                    <button class="item-delete-btn delete-item"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </template>
+                    </div>
+                    
+                    <div class="order-footer mt-auto p-0 pb-2 p-md-4">
+                        <div class="p-3 p-md-0 d-flex flex-column gap-md-3">
+                            
+                            <!-- Row 1: Items & Subtotal -->
+                            <div class="d-flex justify-content-between align-items-center mb-2 mb-md-0">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="summary-label fw-bold d-block d-md-none text-dark" style="font-size: 0.95rem;">New Total:</span>
+                                    <span class="summary-label d-none d-md-block">Total Items:</span>
+                                    <span class="badge text-dark px-2 px-md-3 py-1 py-md-2 rounded-2 rounded-md-pill fs-6 fw-bold" id="total-items-badge" style="background-color: #ffc107 !important;">0</span>
+                                </div>
+                                <div class="text-end d-flex align-items-center">
+                                    <span class="summary-label me-1 me-md-3 fw-bold d-block d-md-none text-dark" style="font-size: 1.1rem;">Subtotal:</span>
+                                    <span class="summary-label me-3 d-none d-md-block">Sub Total</span>
+                                    <span class="summary-value text-dark" id="sub-total" style="font-size: 1.25rem !important;">0.00</span>
+                                </div>
+                            </div>
+
+                            <hr class="d-block d-md-none my-1" style="border-color: #e2e8f0; opacity: 1;">
+
+                            <!-- Row 2: Discount config -->
+                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center my-2 my-md-0 gap-2">
+                                <div class="discount-box border-0 border-md p-0 p-md-1 bg-transparent bg-md-white flex-grow-1 flex-md-grow-0 d-flex flex-column flex-md-row" style="border-color: #e2e8f0;">
+                                    <div class="d-flex justify-content-between align-items-center w-100 gap-3 mb-2 mb-md-0">
+                                        <div class="discount-toggle p-0 p-md-1 rounded-2 flex-grow-1 flex-md-grow-0 d-flex gap-1 bg-transparent bg-md-light">
+                                            <div class="flex-grow-1 discount-mobile-bg rounded-1 overflow-hidden" style="border: 1px solid #cbd5e1;">
+                                                <input type="radio" id="discFlat" name="discType" checked>
+                                                <label for="discFlat" class="text-center w-100 py-1 py-md-0 fw-bold fs-6 mb-0 text-slate">Rs</label>
+                                            </div>
+                                            <div class="flex-grow-1 discount-mobile-bg rounded-1 overflow-hidden" style="border: 1px solid #cbd5e1;">
+                                                <input type="radio" id="discPercent" name="discType">
+                                                <label for="discPercent" class="text-center w-100 py-1 py-md-0 fw-bold fs-6 mb-0 text-slate">%</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-check d-flex d-md-none align-items-center m-0">
+                                            <input class="form-check-input mt-0 me-2 border-0" style="width:1.2rem;height:1.2rem;background-color:#cbd5e1;border-radius:4px;" type="checkbox" id="expenseCheck">
+                                            <label class="form-check-label fw-bold text-dark" style="font-size: 0.85rem;" for="expenseCheck">Expense</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center discount-mobile-bg rounded-2 p-1 p-md-0 mt-2 mt-md-0 inputs-wrapper-mobile border d-none d-md-flex" style="border-color: #cbd5e1 !important;">
+                                        <input type="number" class="discount-input flex-grow-1 flex-md-grow-0" id="discount-flat-input" value="0">
+                                        <span class="discount-symbol me-2">Rs</span>
+                                        <div class="d-none d-md-block" style="border-left: 1px solid #e2e8f0; height: 20px; margin: 0 8px;"></div>
+                                        <input type="number" class="discount-input flex-grow-1 flex-md-grow-0 d-none d-md-block" id="discount-percent-input" value="0">
+                                        <span class="discount-symbol d-none d-md-block">%</span>
+                                    </div>
+                                </div>
+                                <div class="text-end d-none d-md-flex justify-content-end align-items-center">
+                                    <span class="summary-label me-3">Discount</span>
+                                    <span class="summary-value text-danger" id="total-discount">0.00</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Mobile Deal Display Box -->
+                            <div class="d-flex d-md-none rounded-3 py-3 mt-1 shadow-sm bg-white" style="border: 1px solid #f1f5f9;">
+                                <div class="w-50 text-center border-end" style="border-color: #e2e8f0 !important;">
+                                    <div class="fw-bold text-muted mb-1" style="font-size: 0.70rem; letter-spacing: 0.5px;">DISCOUNT</div>
+                                    <div class="fw-bold text-danger" id="mobile-total-discount" style="font-size: 1.45rem;">0.00</div>
+                                </div>
+                                <div class="w-50 text-center">
+                                    <div class="fw-bold text-muted mb-1" style="font-size: 0.70rem; letter-spacing: 0.5px;">GRAND TOTAL</div>
+                                    <div class="fw-bold" id="mobile-grand-total" style="font-size: 1.45rem; color: #22c55e;">0.00</div>
+                                </div>
+                            </div>
+
+                            <!-- Desktop Grand Total -->
+                            <div class="d-none d-md-flex summary-row grand-total mb-0 mt-2">
+                                <span class="summary-label">Grand Total</span>
+                                <span class="summary-value" id="grand-total">0.00</span>
+                            </div>
+                            
+                            <!-- Mobile Sticky Action Nav -->
+                            <div class="sticky-nav-mobile d-block d-md-none">
+                                <div class="d-flex gap-1 mb-2 mt-1 w-100"> 
+                                    <button class="btn text-dark btn-header-action flex-grow-1 border-0 py-2 d-flex align-items-center justify-content-center text-nowrap px-1" style="background-color: #f1f5f9; font-weight: 600; border-radius:6px; font-size: 0.8rem;"><i class="fa-regular fa-comment-dots me-1 text-secondary"></i>Add Remarks</button>
+                                    <button class="btn text-dark btn-header-action flex-grow-1 border-0 py-2 d-flex align-items-center justify-content-center text-nowrap px-1" style="background-color: #f1f5f9; font-weight: 600; border-radius:6px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right-arrow-left me-1 text-secondary"></i>Transfer Order</button>
+                                </div>
+                                <button class="btn btn-primary w-100 py-2 mb-2 border-0 fw-bold shadow-sm mt-1 text-white d-flex align-items-center justify-content-center" style="font-size:0.9rem; border-radius:6px;"><i class="fa-solid fa-bell me-2"></i>Place Order</button>
+                                
+                                <div class="d-flex w-100 gap-1 pb-1 align-items-stretch">
+                                    <button class="btn btn-checkout-main px-1 py-2 d-flex align-items-center justify-content-center border-0 rounded-2 m-0 text-nowrap" style="width: 40%;">
+                                        <span class="fw-medium text-white" style="font-size: 0.85rem; letter-spacing: 0.5px;">Checkout</span>
+                                    </button>
+                                    <button class="btn btn-action-light px-1 py-2 d-flex align-items-center justify-content-center gap-1 shadow-sm rounded-2 border-0 m-0 text-nowrap" style="width: 32%;">
+                                        <i class="fa-regular fa-file-lines text-slate" style="font-size: 0.75rem;"></i>
+                                        <span class="fw-medium text-slate" style="font-size: 0.75rem;">Est. Bill</span>
+                                    </button>
+                                    <button class="btn btn-action-danger-light px-1 py-2 d-flex align-items-center justify-content-center gap-1 shadow-sm rounded-2 border-0 m-0 text-nowrap" style="width: 28%;">
+                                        <i class="fa-regular fa-circle-xmark text-danger" style="font-size: 0.75rem;"></i>
+                                        <span class="fw-medium text-danger" style="font-size: 0.75rem;">Void</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Desktop Checkout Buttons -->
+                            <div class="d-none d-md-flex gap-2 mt-md-3 mt-1 pb-1 align-items-stretch">
+                                <button class="btn flex-grow-1 btn-checkout-main px-2 py-2 d-flex align-items-center justify-content-center border-0 rounded-2 m-0">
+                                    <span class="fw-medium text-white" style="font-size: 0.95rem; letter-spacing: 0.5px;">Checkout</span>
+                                </button>
+                                <button class="btn btn-action-light px-3 py-2 d-flex align-items-center justify-content-center gap-2 shadow-sm rounded-2 border-0 m-0">
+                                    <i class="fa-regular fa-file-lines text-slate"></i>
+                                    <span class="fw-medium text-slate" style="font-size: 0.85rem;">Est. Bill</span>
+                                </button>
+                                <button class="btn btn-action-danger-light px-3 py-2 d-flex align-items-center justify-content-center gap-2 shadow-sm rounded-2 border-0 m-0">
+                                    <i class="fa-regular fa-circle-xmark text-danger"></i>
+                                    <span class="fw-medium text-danger" style="font-size: 0.85rem;">Void</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component Scripts -->
+    <script src="../shared/components/component.js"></script>
+    <script src="../shared/scripts/script.js"></script>
+    <!-- Billing Logic -->
+    <script src="scripts/billing.js"></script>
+</body>
+</html>
+
